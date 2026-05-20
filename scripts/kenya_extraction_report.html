@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kenya KMHFR Data Extraction Report | HealthScope</title>
+  <style>
+    :root {
+      --charcoal: #3d3d3d;
+      --gold: #c9a227;
+      --gold-light: #d4b33d;
+      --bg: #fafaf8;
+      --text: #2d2d2d;
+      --muted: #6b6b6b;
+      --border: #e0ddd6;
+      --code-bg: #f5f4f0;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', -apple-system, sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; }
+    .header { background: var(--charcoal); color: #fff; padding: 3rem 2rem; }
+    .header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+    .header p { opacity: 0.7; font-size: 1rem; }
+    .header .meta { margin-top: 1.5rem; display: flex; gap: 2rem; flex-wrap: wrap; font-size: 0.9rem; opacity: 0.8; }
+    .header .meta span { display: flex; align-items: center; gap: 0.4rem; }
+    .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+    h2 { font-size: 1.5rem; color: var(--charcoal); margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--gold); }
+    h3 { font-size: 1.15rem; color: var(--charcoal); margin: 1.5rem 0 0.75rem; }
+    p { margin-bottom: 1rem; }
+    a { color: var(--gold); }
+    code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; font-family: 'Consolas', 'Courier New', monospace; }
+    pre { background: var(--charcoal); color: #e0ddd6; padding: 1.25rem 1.5rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0 1.5rem; font-size: 0.85rem; line-height: 1.6; }
+    pre code { background: none; padding: 0; color: inherit; }
+    .card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin: 1rem 0; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+    .card h4 { margin: 0 0 0.5rem; color: var(--gold); font-size: 1rem; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .stat { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 1rem; text-align: center; }
+    .stat .val { font-size: 1.6rem; font-weight: 700; color: var(--gold); }
+    .stat .lbl { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+    th { background: var(--charcoal); color: #fff; padding: 0.6rem 0.75rem; text-align: left; font-weight: 600; }
+    td { padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); }
+    tr:hover td { background: rgba(201,162,39,0.04); }
+    .phase { border-left: 4px solid var(--gold); padding-left: 1.25rem; margin: 1.5rem 0; }
+    .phase-num { display: inline-block; background: var(--gold); color: #fff; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-weight: 700; font-size: 0.85rem; margin-right: 0.5rem; }
+    .note { background: rgba(201,162,39,0.06); border: 1px solid rgba(201,162,39,0.2); border-radius: 8px; padding: 1rem 1.25rem; margin: 1rem 0; font-size: 0.9rem; }
+    .footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 2rem; text-align: center; font-size: 0.85rem; margin-top: 3rem; }
+    ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
+    li { margin-bottom: 0.35rem; }
+    @media (max-width: 768px) {
+      .header h1 { font-size: 1.6rem; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div style="max-width:900px;margin:0 auto;">
+    <h1>Kenya KMHFR Data Extraction</h1>
+    <p>Full methodology and script for extracting health facility data from the Kenya Master Health Facility Registry</p>
+    <div class="meta">
+      <span><strong>Author:</strong> Kasim Chambulilo</span>
+      <span><strong>Project:</strong> HealthScope Intelligence Portal</span>
+      <span><strong>Date:</strong> May 2026</span>
+      <span><strong>Source:</strong> <a href="https://kmhfr.health.go.ke/public/facilities" style="color:#d4b33d;">kmhfr.health.go.ke</a></span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ═══ RESULTS SUMMARY ═══ -->
+  <h2>Extraction Results</h2>
+  <div class="stats-grid">
+    <div class="stat"><div class="val">17,353</div><div class="lbl">Total Facilities</div></div>
+    <div class="stat"><div class="val">16,797</div><div class="lbl">With GPS Coordinates</div></div>
+    <div class="stat"><div class="val">201,259</div><div class="lbl">Service Records</div></div>
+    <div class="stat"><div class="val">51</div><div class="lbl">Service Categories</div></div>
+    <div class="stat"><div class="val">47</div><div class="lbl">Counties Covered</div></div>
+    <div class="stat"><div class="val">96.8%</div><div class="lbl">Geocoding Rate</div></div>
+  </div>
+
+  <!-- ═══ BACKGROUND ═══ -->
+  <h2>1. Background</h2>
+  <p>
+    The <strong>Kenya Master Health Facility Registry (KMHFR)</strong> at
+    <a href="https://kmhfr.health.go.ke/public/facilities">kmhfr.health.go.ke</a>
+    is operated by the Kenya Ministry of Health. It contains the authoritative registry of all health
+    facilities in Kenya, including their type, ownership, KEPH level, county, GPS coordinates,
+    and services offered.
+  </p>
+  <p>
+    The KMHFR does <strong>not provide a public API</strong>. The platform is built with
+    <strong>Next.js</strong> (React Server Components) and renders facility data server-side,
+    embedding it in the HTML as escaped JSON within <code>self.__next_f.push()</code> script blocks.
+    This means data cannot be accessed via simple REST API calls &mdash; it must be extracted
+    from the rendered HTML pages.
+  </p>
+
+  <!-- ═══ APPROACH ═══ -->
+  <h2>2. Extraction Approach</h2>
+  <p>The extraction is performed in three phases:</p>
+
+  <div class="phase">
+    <h3><span class="phase-num">1</span> Facility Listing Scrape</h3>
+    <p>
+      The facility listing at <code>/public/facilities?page=N</code> displays 30 facilities per page.
+      With ~17,000+ facilities, this means ~580 pages. Each page's HTML contains a
+      <code>self.__next_f.push([1,"..."])</code> block with embedded JSON facility objects.
+    </p>
+    <p><strong>Data extracted per facility:</strong></p>
+    <ul>
+      <li><code>id</code> &mdash; UUID (used to access the detail page)</li>
+      <li><code>name</code>, <code>official_name</code>, <code>code</code></li>
+      <li><code>facility_type_name</code> (e.g., Dispensary, Hospital, Medical Clinic)</li>
+      <li><code>owner_name</code> (e.g., Ministry of Health, Private Practice)</li>
+      <li><code>operation_status_name</code> (Operational, Closed, etc.)</li>
+      <li><code>county_name</code>, <code>sub_county_name</code>, <code>constituency_name</code>, <code>ward_name</code></li>
+      <li><code>keph_level_name</code> (Level 2 through Level 6)</li>
+    </ul>
+    <p><strong>Concurrency:</strong> 8 threads &bull; <strong>Time:</strong> ~5 minutes</p>
+  </div>
+
+  <div class="phase">
+    <h3><span class="phase-num">2</span> Detail Page Scrape (Coordinates + Services)</h3>
+    <p>
+      Each facility has a detail page at <code>/public/facilities/{uuid}</code> containing
+      GPS coordinates and the full list of services. The detail page HTML includes:
+    </p>
+    <ul>
+      <li><strong>Coordinates:</strong> Embedded as <code>"lat_long":[-1.30088,36.80734]</code> in a JSON object within the push blocks</li>
+      <li><strong>Services:</strong> Each service appears as a <code>"service_name":"..."</code> paired with a <code>"category_name":"..."</code> in the push blocks</li>
+    </ul>
+    <p>
+      The services tab on each facility page shows entries like:
+    </p>
+    <div class="card">
+      <h4>Example: Facility Services</h4>
+      <table>
+        <tr><th>Service</th><th>Category</th></tr>
+        <tr><td>General Outpatient</td><td>CURATIVE SERVICES</td></tr>
+        <tr><td>Natural</td><td>FAMILY PLANNING</td></tr>
+        <tr><td>Child Immunization</td><td>INTERGRATED IMMUNIZATION</td></tr>
+        <tr><td>HPV TEST</td><td>CANCER SCREENING</td></tr>
+        <tr><td>Focused Antenatal Care</td><td>ANTENATAL CARE</td></tr>
+        <tr><td>HIV risk reduction services</td><td>HIV/AIDS PREVENTION AND CARE SERVICES</td></tr>
+        <tr><td>Class A</td><td>LABORATORY SERVICES</td></tr>
+      </table>
+    </div>
+    <p><strong>Concurrency:</strong> 10-12 threads &bull; <strong>Time:</strong> ~25-35 minutes</p>
+  </div>
+
+  <div class="phase">
+    <h3><span class="phase-num">3</span> Standardization &amp; Export</h3>
+    <p>Raw data is standardized into two CSV files matching the HealthScope schema:</p>
+    <ul>
+      <li><strong>kenya_standardized.csv</strong> &mdash; One row per facility (name, code, type, ownership, lat, lon, county, status)</li>
+      <li><strong>kenya_services.csv</strong> &mdash; Long format, one row per service per facility (facility_code, service_category, service_group, service_detail)</li>
+    </ul>
+    <p>Coordinates are validated against Kenya's bounding box (lat: -4.7 to 5.5, lon: 33.9 to 41.9). Ownership is classified into Public, Private, Faith-Based, or NGO.</p>
+  </div>
+
+  <!-- ═══ REGEX PATTERNS ═══ -->
+  <h2>3. Key Extraction Patterns</h2>
+
+  <h3>3.1 Facility Objects from Listing Pages</h3>
+  <p>Facility data is embedded in <code>self.__next_f.push([1,"..."])</code> blocks as escaped JSON. After unescaping <code>\"</code> → <code>"</code>, we match:</p>
+  <pre><code>{"id":"[a-f0-9-]{36}",
+ "facility_type_name":"...",
+ "owner_name":"...",
+ "operation_status_name":"...",
+ "constituency_name":"...",
+ "ward_name":"...",
+ "sub_county_name":"...",
+ "county_name":"...",
+ "keph_level_name":"...",
+ "name":"...",
+ "official_name":"...",
+ "code":12345}</code></pre>
+
+  <h3>3.2 Coordinates from Detail Pages</h3>
+  <pre><code># Regex pattern:
+re.search(r'lat_long..:\[([0-9.\-]+),([0-9.\-]+)\]', html)
+
+# Example match in HTML:
+"lat_long":[-1.30088,36.80734]</code></pre>
+
+  <h3>3.3 Services from Detail Pages</h3>
+  <pre><code># After unescaping push block content:
+service_names = re.findall(r'"service_name":"([^"]{3,120})"', text)
+category_names = re.findall(r'"category_name":"([^"]{3,120})"', text)
+
+# These appear in matched pairs (same order), so:
+for name, category in zip(service_names, category_names):
+    services.append({"name": name, "category": category})</code></pre>
+
+  <!-- ═══ TOP SERVICE CATEGORIES ═══ -->
+  <h2>4. Service Categories Extracted</h2>
+  <table>
+    <tr><th>Category</th><th>Records</th></tr>
+    <tr><td>HIV/AIDS PREVENTION AND CARE SERVICES</td><td>33,503</td></tr>
+    <tr><td>FAMILY PLANNING</td><td>26,033</td></tr>
+    <tr><td>CURATIVE SERVICES</td><td>14,589</td></tr>
+    <tr><td>ANTENATAL CARE</td><td>10,872</td></tr>
+    <tr><td>INTERGRATED IMMUNIZATION</td><td>9,321</td></tr>
+    <tr><td>INTEGRATED MANAGEMENT OF CHILDHOOD ILLNESS</td><td>8,254</td></tr>
+    <tr><td>LABORATORY SERVICES</td><td>7,895</td></tr>
+    <tr><td>MATERNITY SERVICES</td><td>6,665</td></tr>
+    <tr><td>IMMUNISATION</td><td>6,385</td></tr>
+    <tr><td>CANCER SCREENING</td><td>5,892</td></tr>
+  </table>
+  <p style="color:var(--muted);font-size:0.85rem;">Total: 51 unique service categories across 201,259 service records.</p>
+
+  <!-- ═══ FULL SCRIPT ═══ -->
+  <h2>5. Full Extraction Script</h2>
+  <div class="note">
+    <strong>Requirements:</strong> Python 3.10+ (standard library only &mdash; no pip packages needed).<br>
+    <strong>Runtime:</strong> ~40-60 minutes depending on network speed.<br>
+    <strong>Usage:</strong> <code>python kenya_extraction.py</code>
+  </div>
+
+  <pre><code>#!/usr/bin/env python3
+"""
+Kenya Master Health Facility Registry (KMHFR) - Full Data Extraction
+Author:  Kasim Chambulilo
+Project: HealthScope Intelligence Portal
+Source:  https://kmhfr.health.go.ke/public/facilities
+"""
+
+import json, csv, re, os, sys, ssl, time, urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+# ── Configuration ──
+OUTPUT_DIR = "output"
+THREADS_LISTING = 8
+THREADS_DETAIL = 10
+TIMEOUT = 30
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+KENYA_BOUNDS = (-4.7, 5.5, 33.9, 41.9)  # lat_min, lat_max, lon_min, lon_max
+
+CTX = ssl.create_default_context()
+CTX.check_hostname = False
+CTX.verify_mode = ssl.CERT_NONE
+
+
+def fetch(url):
+    req = urllib.request.Request(url, headers={"User-Agent": UA})
+    return urllib.request.urlopen(req, timeout=TIMEOUT, context=CTX) \
+               .read().decode("utf-8", "replace")
+
+
+# ══════════════════════════════════════════════
+#  PHASE 1: Scrape facility listing pages
+# ══════════════════════════════════════════════
+
+def extract_listings(html):
+    """Extract facility objects from a listing page HTML."""
+    pushes = re.findall(r'self\.__next_f\.push\(\[1,"(.*?)"\]\)', html, re.DOTALL)
+    facs = []
+    for p in pushes:
+        content = p.replace('\\"', '"').replace('\\u0026', '&amp;')
+        for m in re.finditer(
+            r'\{"id":"([a-f0-9-]{36})",'
+            r'"facility_type_name":"([^"]*)",'
+            r'"owner_name":"([^"]*)",'
+            r'"operation_status_name":"([^"]*)",'
+            r'"constituency_name":"([^"]*)",'
+            r'"ward_name":"([^"]*)",'
+            r'"sub_county_name":"([^"]*)",'
+            r'"county_name":"([^"]*)",'
+            r'"keph_level_name":"([^"]*)",'
+            r'"name":"([^"]*)",'
+            r'"official_name":"([^"]*)",'
+            r'"code":(\d+|null)', content):
+            facs.append({
+                "id": m.group(1), "facility_type": m.group(2),
+                "owner": m.group(3), "status": m.group(4),
+                "county": m.group(8), "sub_county": m.group(7),
+                "keph_level": m.group(9), "name": m.group(10),
+                "code": m.group(12) if m.group(12) != "null" else "",
+            })
+    return facs
+
+
+def fetch_listing_page(page):
+    html = fetch(f"https://kmhfr.health.go.ke/public/facilities?page={page}")
+    return page, extract_listings(html)
+
+
+def phase1():
+    print("PHASE 1: Scraping listing pages...", flush=True)
+    all_facs = {}
+    errors = 0
+    total_pages = 600  # overshoot; empty pages are harmless
+    with ThreadPoolExecutor(max_workers=THREADS_LISTING) as ex:
+        futures = {ex.submit(fetch_listing_page, p): p
+                   for p in range(1, total_pages + 1)}
+        done = 0
+        for f in as_completed(futures):
+            done += 1
+            try:
+                _, facs = f.result()
+                for fac in facs:
+                    all_facs[fac["id"]] = fac
+            except:
+                errors += 1
+            if done % 50 == 0:
+                print(f"  {done}/{total_pages} pages, "
+                      f"{len(all_facs)} facilities, {errors} errors",
+                      flush=True)
+    print(f"  Phase 1 done: {len(all_facs)} facilities\n", flush=True)
+    return all_facs
+
+
+# ══════════════════════════════════════════════
+#  PHASE 2: Scrape detail pages (coords + services)
+# ══════════════════════════════════════════════
+
+def fetch_detail(fac):
+    """Fetch one facility detail page, extract coords + services."""
+    uid = fac["id"]
+    html = fetch(f"https://kmhfr.health.go.ke/public/facilities/{uid}")
+
+    # Coordinates
+    lat, lon = "", ""
+    m = re.search(r"lat_long..:\[([0-9.\-]+),([0-9.\-]+)\]", html)
+    if m:
+        lat, lon = m.group(1), m.group(2)
+
+    # Services (from push blocks)
+    pushes = re.findall(
+        r'self\.__next_f\.push\(\[1,"(.*?)"\]\)', html, re.DOTALL)
+    text = " ".join(p.replace('\\"', '"').replace("\\u0026", "&amp;")
+                    for p in pushes)
+    svc_names = re.findall(r'"service_name":"([^"]{3,120})"', text)
+    cat_names = re.findall(r'"category_name":"([^"]{3,120})"', text)
+
+    svcs = []
+    if len(svc_names) == len(cat_names):
+        svcs = [{"name": n, "category": c}
+                for n, c in zip(svc_names, cat_names)]
+    else:
+        svcs = [{"name": n, "category": ""} for n in svc_names]
+
+    return uid, lat, lon, svcs
+
+
+def phase2(all_facs):
+    print(f"PHASE 2: Scraping {len(all_facs)} detail pages...", flush=True)
+    coords, services = {}, {}
+    errors = 0
+    total = len(all_facs)
+    with ThreadPoolExecutor(max_workers=THREADS_DETAIL) as ex:
+        futures = {ex.submit(fetch_detail, f): f["id"]
+                   for f in all_facs.values()}
+        done = 0
+        for f in as_completed(futures):
+            done += 1
+            try:
+                uid, lat, lon, svcs = f.result()
+                if lat and lon:
+                    coords[uid] = (lat, lon)
+                if svcs:
+                    services[uid] = svcs
+            except:
+                errors += 1
+            if done % 500 == 0:
+                print(f"  {done}/{total}: {len(coords)} coords, "
+                      f"{len(services)} w/svcs, {errors} errors",
+                      flush=True)
+    print(f"  Phase 2 done: {len(coords)} coords, "
+          f"{len(services)} w/services\n", flush=True)
+    return coords, services
+
+
+# ══════════════════════════════════════════════
+#  PHASE 3: Export standardized CSVs
+# ══════════════════════════════════════════════
+
+def phase3(all_facs, coords, services):
+    print("PHASE 3: Exporting CSVs...", flush=True)
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    b = KENYA_BOUNDS
+
+    # Facility CSV
+    rows = []
+    for fac in all_facs.values():
+        lat, lon = "", ""
+        if fac["id"] in coords:
+            la, lo = coords[fac["id"]]
+            try:
+                la_f, lo_f = float(la), float(lo)
+                if b[0] &lt;= la_f &lt;= b[1] and b[2] &lt;= lo_f &lt;= b[3]:
+                    lat, lon = la, lo
+            except:
+                pass
+        owner = fac.get("owner", "")
+        if "Ministry" in owner or "Government" in owner:
+            ownership = "Public"
+        elif "Private" in owner:
+            ownership = "Private"
+        elif any(k in owner for k in ("Faith","Church","Mission")):
+            ownership = "Faith-Based"
+        elif "NGO" in owner:
+            ownership = "NGO"
+        else:
+            ownership = owner[:40]
+        rows.append({
+            "facility_name": fac["name"],
+            "facility_code": fac.get("code", ""),
+            "facility_type": fac.get("facility_type", ""),
+            "facility_ownership": ownership,
+            "latitude": lat, "longitude": lon,
+            "admin1": fac.get("county", ""),
+            "status": "Operating"
+                if fac.get("status") == "Operational"
+                else fac.get("status", ""),
+        })
+    with open(f"{OUTPUT_DIR}/kenya_standardized.csv", "w",
+              encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=[
+            "facility_name", "facility_code", "facility_type",
+            "facility_ownership", "latitude", "longitude",
+            "admin1", "status"])
+        w.writeheader()
+        w.writerows(rows)
+
+    # Services CSV
+    svc_rows = []
+    for fac in all_facs.values():
+        if fac["id"] in services:
+            for svc in services[fac["id"]]:
+                svc_rows.append({
+                    "facility_code": fac.get("code", ""),
+                    "service_category": svc["category"],
+                    "service_group": svc["category"],
+                    "service_detail": svc["name"],
+                })
+    with open(f"{OUTPUT_DIR}/kenya_services.csv", "w",
+              encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=[
+            "facility_code", "service_category",
+            "service_group", "service_detail"])
+        w.writeheader()
+        w.writerows(svc_rows)
+
+    wc = sum(1 for r in rows if r["latitude"])
+    print(f"  Facilities: {len(rows)}")
+    print(f"  With coords: {wc}")
+    print(f"  Service records: {len(svc_rows)}")
+    print(f"  Output: {OUTPUT_DIR}/")
+
+
+# ══════════════════════════════════════════════
+#  MAIN
+# ══════════════════════════════════════════════
+
+if __name__ == "__main__":
+    print("KMHFR Extraction - HealthScope")
+    print("Author: Kasim Chambulilo\n")
+    t = time.time()
+    all_facs = phase1()
+    coords, services = phase2(all_facs)
+    phase3(all_facs, coords, services)
+    print(f"\nDone in {(time.time()-t)/60:.1f} minutes")</code></pre>
+
+  <div class="note">
+    <strong>Note:</strong> In the script above, replace <code>&amp;lt;=</code> with <code>&lt;=</code> (less-than-or-equal) if copying from this HTML.
+    The Python file version at <code>scripts/kenya_extraction.py</code> has the correct syntax.
+  </div>
+
+  <!-- ═══ OUTPUT FILES ═══ -->
+  <h2>6. Output File Schemas</h2>
+
+  <h3>kenya_standardized.csv</h3>
+  <table>
+    <tr><th>Column</th><th>Type</th><th>Description</th></tr>
+    <tr><td><code>facility_name</code></td><td>string</td><td>Facility name from KMHFR</td></tr>
+    <tr><td><code>facility_code</code></td><td>integer</td><td>KMHFR numeric facility code</td></tr>
+    <tr><td><code>facility_type</code></td><td>string</td><td>E.g., Dispensary, Hospital, Medical Clinic</td></tr>
+    <tr><td><code>facility_ownership</code></td><td>string</td><td>Public, Private, Faith-Based, NGO</td></tr>
+    <tr><td><code>latitude</code></td><td>float</td><td>GPS latitude (empty if unavailable)</td></tr>
+    <tr><td><code>longitude</code></td><td>float</td><td>GPS longitude (empty if unavailable)</td></tr>
+    <tr><td><code>admin1</code></td><td>string</td><td>County name (47 counties)</td></tr>
+    <tr><td><code>status</code></td><td>string</td><td>Operating, Closed, etc.</td></tr>
+  </table>
+
+  <h3>kenya_services.csv</h3>
+  <table>
+    <tr><th>Column</th><th>Type</th><th>Description</th></tr>
+    <tr><td><code>facility_code</code></td><td>integer</td><td>Links to facility registry</td></tr>
+    <tr><td><code>service_category</code></td><td>string</td><td>E.g., CURATIVE SERVICES, FAMILY PLANNING</td></tr>
+    <tr><td><code>service_group</code></td><td>string</td><td>Same as category (for schema compatibility)</td></tr>
+    <tr><td><code>service_detail</code></td><td>string</td><td>Specific service name (e.g., General Outpatient)</td></tr>
+  </table>
+
+  <!-- ═══ LIMITATIONS ═══ -->
+  <h2>7. Limitations &amp; Notes</h2>
+  <ul>
+    <li>The KMHFR website does not have a documented public API; this extraction relies on parsing server-rendered HTML.</li>
+    <li>If the KMHFR updates its frontend framework or HTML structure, the regex patterns may need adjustment.</li>
+    <li>~3.2% of facilities lack GPS coordinates in the KMHFR database.</li>
+    <li>Some service category names contain typos from the source (e.g., "INTERGRATED" instead of "INTEGRATED").</li>
+    <li>Coordinates are validated against Kenya's bounding box; out-of-bounds values are discarded.</li>
+    <li>The script makes ~18,000 HTTP requests total; please be respectful of the KMHFR server.</li>
+  </ul>
+
+</div>
+
+<div class="footer">
+  &copy; 2026 Kasim Chambulilo &mdash; HealthScope Intelligence Portal &mdash; Malaria Atlas Project, East Africa Node
+</div>
+
+</body>
+</html>
