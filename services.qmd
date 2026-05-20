@@ -59,6 +59,7 @@ toc: false
     <span style="font-weight:600;font-size:.9rem;color:var(--map-text-muted);">Country:</span>
     <button class="svc-country-btn active" onclick="window._switchCountry('tanzania')" id="btn-tanzania">Tanzania</button>
     <button class="svc-country-btn" onclick="window._switchCountry('kenya')" id="btn-kenya">Kenya</button>
+    <button class="svc-country-btn" onclick="window._switchCountry('zambia')" id="btn-zambia">Zambia</button>
   </div>
 
   <div class="svc-status" id="svc-status">Loading data...</div>
@@ -118,6 +119,12 @@ toc: false
       svcFile: 'data/Kenya/kenya_services.csv',
       bounds: [[-4.7,5.5],[33.9,41.9]],
       label: 'Kenya'
+    },
+    zambia: {
+      facFile: 'data/Zambia/zambia_standardized.csv',
+      svcFile: 'data/Zambia/zambia_services.csv',
+      bounds: [[-18.1,-8.2],[21.9,33.7]],
+      label: 'Zambia'
     }
   };
 

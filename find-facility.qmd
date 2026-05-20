@@ -322,6 +322,7 @@ execute:
       <select id="country-select">
         <option value="tanzania" selected>Tanzania</option>
         <option value="kenya">Kenya</option>
+        <option value="zambia">Zambia</option>
       </select>
     </div>
     <div>
@@ -400,6 +401,13 @@ execute:
       bounds: [-4.7, 5.5, 33.9, 41.9],
       label: 'Kenya',
       statusFilter: 'Operating'
+    },
+    zambia: {
+      facFile: 'data/Zambia/zambia_standardized.csv',
+      svcFile: 'data/Zambia/zambia_services.csv',
+      bounds: [-18.1, -8.2, 21.9, 33.7],
+      label: 'Zambia',
+      statusFilter: 'Functional'
     }
   };
 
