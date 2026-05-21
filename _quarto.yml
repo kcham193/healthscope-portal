@@ -31,16 +31,16 @@ website:
     left:
       - text: "Home"
         href: index.qmd
-      - text: "Registry Explorer"
-        href: registry.qmd
-      - text: "Find Facility"
-        href: find-facility.qmd
-      - text: "Service Intelligence"
-        href: services.qmd
-      - text: "Equity Dashboard"
-        href: equity.qmd
       - text: "About"
         href: about.qmd
+      - text: "Registry Explorer"
+        href: registry.qmd
+      - text: "General Information"
+        href: equity.qmd
+      - text: "Service Intelligence"
+        href: services.qmd
+      - text: "Find Facility"
+        href: find-facility.qmd
       - text: "Help"
         href: help.qmd
 
