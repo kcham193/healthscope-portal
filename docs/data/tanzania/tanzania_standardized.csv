@@ -299,7 +299,7 @@ COGI OLDONYOSAMBU,100918-2,Dispensary,Private,-3.14588,36.69191,Arusha,Operating
 ILKERIN,121773-6,Dispensary,Public,-3.37448,36.57251,Arusha,Operating
 MUSA,105715-7,Dispensary,Public,-3.32405,36.520461,Arusha,Operating
 KIVULINI,112313-2,Health Center,Private,-3.51706,36.87044,Arusha,Operating
-PONA,121531-8,Health Laboratory,Private,,,Arusha,Operating
+PONA,121531-8,Health Laboratory,Private,30,40,Arusha,Operating
 OLDONYOSAPUK,106903-8,Dispensary,Public,-3.3292,36.7094,Arusha,Operating
 KISERIANI,103088-1,Dispensary,Public,-3.45026,36.73876,Arusha,Operating
 KIRANYI,103029-5,Dispensary,Public,-3.342505,36.668095,Arusha,Operating
@@ -461,7 +461,7 @@ KIEMBENI,123650-4,Health Laboratory,Private,-6.57522,39.10543,Pwani,Operating
 MAPINGA,104301-7,Dispensary,Public,-6.589316,39.060756,Pwani,Operating
 SOBAREVO,124280-9,Clinic,Private,-6.62434,39.06922,Pwani,Operating
 Bagamoyo,100221-1,Hospital,Public,-6.437181,38.907161,Pwani,Operating
-KIMALANGÂ´OMBE,115014-3,Dispensary,Public,-6.43617,38.91414,Pwani,Operating
+KIMALANG´OMBE,115014-3,Dispensary,Public,-6.43617,38.91414,Pwani,Operating
 KINAMA,122986-3,Health Laboratory,Private,-6.45501,38.88312,Pwani,Operating
 MKENGE,105065-7,Dispensary,Public,-6.46415,38.5798,Pwani,Operating
 BAOBAB,122598-6,Hospital,Private,-6.60669,39.06831,Pwani,Operating
@@ -613,7 +613,7 @@ MIGANGO,121257-0,Dispensary,Public,NA,NA,Kagera,Operating
 23KJ,108548-9,Dispensary,Public,-2.63157,31.33744,Kagera,Operating
 TUMAINI,107921-9,Dispensary,Private,-3.03719,31.2224,Kagera,Operating
 NYAMBALE,109827-6,Dispensary,Public,-2.86219,31.24802,Kagera,Operating
-KITWECHEMBOGO,121045-9,Dispensary,Public,,,Kagera,Operating
+KITWECHEMBOGO,121045-9,Dispensary,Public,2.3452,31.1716,Kagera,Operating
 BISIBO,121044-2,Health Center,Public,-2.68617,31.29776,Kagera,Operating
 STAMIGOLD BIHARAMULO MINE,108547-1,Dispensary,Private,-3.20635,31.5419,Kagera,Operating
 KISUMA,121080-6,Dispensary,Public,-2.80656,31.35844,Kagera,Operating
@@ -630,7 +630,7 @@ PLUMTREE,120252-2,Dispensary,Private,-3.03872,31.12216,Kagera,Operating
 MAGEREZA,108604-0,Dispensary,Public,-2.63283,31.30494,Kagera,Operating
 NEMBA,113580-5,Health Center,Public,-2.97433,31.37781,Kagera,Operating
 NYAKAYENZE,121890-8,Dispensary,Public,NA,NA,Kagera,Operating
-ISAMBARA,121043-4,Dispensary,Public,,,Kagera,Operating
+ISAMBARA,121043-4,Dispensary,Public,2.89231,31.55783,Kagera,Operating
 KAGOMA,109779-9,Dispensary,Public,-2.794597,31.581383,Kagera,Operating
 LUSAHUNGA,103747-2,Dispensary,Public,-2.90015,31.2009,Kagera,Operating
 MAY DAY,108745-1,Health Center,Private,-2.63724,31.31327,Kagera,Operating
@@ -794,7 +794,7 @@ BUKOBA MUNICIPAL,111167-3,Hospital,Public,-1.30951,31.79622,Kagera,Operating
 BALOZI,121949-2,Health Laboratory,Private,-1.30088,31.85286,Kagera,Operating
 MESO VOICE OF VICTORY,123350-1,Dispensary,Private,-1.32643,31.80498,Kagera,Operating
 PRINMAT EKISHA,108900-2,Maternity Home,Private,-1.32392,31.81978,Kagera,Operating
-BUKOBA,121826-2,Clinic,Private,,,Kagera,Operating
+BUKOBA,121826-2,Clinic,Private,1.33394,31.8192,Kagera,Operating
 KAGEMU,102158-3,Dispensary,Public,-1.35568,31.801602,Kagera,Operating
 BLC,123016-8,Health Laboratory,Private,-1.16314,31.48334,Kagera,Operating
 BUKOBA SEC. SCHOOL,100506-5,Dispensary,Public,-1.3326,31.812464,Kagera,Operating
@@ -848,7 +848,7 @@ FFU NSHAMBYA,106578-8,Dispensary,Public,-1.31601,31.800299,Kagera,Operating
 RUGAMBWA,107129-9,Dispensary,Public,-1.34692,31.80458,Kagera,Operating
 BUKOMBE,100511-5,Hospital,Public,-3.461566,31.89497,Geita,Operating
 SILAMILA,122300-7,Dispensary,Public,-3.39749,31.89132,Geita,Operating
-MARANNATHA,123351-9,Dispensary,Private,,,Geita,Operating
+MARANNATHA,123351-9,Dispensary,Private,-53.33743,31.52304,Geita,Operating
 UYOVU,108233-8,Health Center,Public,-3.33583,31.52579,Geita,Operating
 KAPELA MEDICAL,123677-7,Health Laboratory,Private,-3.47421,31.90101,Geita,Operating
 BICHENYERI,123530-8,Health Laboratory,Private,-3.33838,31.52251,Geita,Operating
@@ -877,7 +877,7 @@ NAMPALAHALA,120702-6,Dispensary,Public,-3.24094,31.64623,Geita,Operating
 CHARLES KULWA MEMORIAL,104735-6,Hospital,Private,-3.33802,31.5233,Geita,Operating
 MSASANI,105442-8,Dispensary,Public,-3.6396,31.9888,Geita,Operating
 BAKWATA NK,109777-3,Dispensary,Private,-3.46712,31.89536,Geita,Operating
-TMRC LYOBAHIKA,111672-2,Dispensary,Private,,,Geita,Operating
+TMRC LYOBAHIKA,111672-2,Dispensary,Private,-53.34201,31.52793,Geita,Operating
 USHIROMBO,108177-7,Health Center,Public,-3.47096,31.90028,Geita,Operating
 BUFANKA,109809-4,Health Center,Public,-3.60492,31.98492,Geita,Operating
 IKUZI,101696-3,Dispensary,Public,-3.38463,31.5851,Geita,Operating
@@ -888,7 +888,7 @@ KITILA,121760-3,Dispensary,Private,-3.345515,31.526063,Geita,Operating
 KIZIBA,122488-0,Dispensary,Public,-3.50923,31.88826,Geita,Operating
 BUGELENGA,100449-8,Dispensary,Public,-3.64663,NA,Geita,Operating
 KIVILICHA,111005-5,Dispensary,Public,-4.95366,38.35743,Tanga,Operating
-MZIASAA,120981-6,Dispensary,Public,,,Tanga,Operating
+MZIASAA,120981-6,Dispensary,Public,4.8732,38.4689,Tanga,Operating
 MAYO KISIWANI,104521-0,Dispensary,Public,-4.86259,38.4703,Tanga,Operating
 ST. RAPHAEL,107627-2,Dispensary,Private,-4.86278,38.37471,Tanga,Operating
 KWEHANGALA,103399-2,Dispensary,Public,-4.8555,38.43845,Tanga,Operating
@@ -904,10 +904,10 @@ BUMBULI,123381-6,Hospital,Public,-4.85321,38.42572,Tanga,Operating
 SONI,107550-6,Health Center,Public,-4.84525,38.36966,Tanga,Operating
 NKAMAI,123415-2,Dispensary,Public,-4.91405,34.32222,Tanga,Operating
 MGWASHI,104796-8,Health Center,Public,-4.77283,38.49659,Tanga,Operating
-LWANDAI,120983-2,Dispensary,Public,,,Tanga,Operating
+LWANDAI,120983-2,Dispensary,Public,4.8732,38.4689,Tanga,Operating
 KWEMKOMOLE,103410-7,Dispensary,Public,-4.82782,38.56577,Tanga,Operating
 MBUZII,104676-2,Dispensary,Public,-4.85714,38.34227,Tanga,Operating
-KWENDOGHOI,120984-0,Dispensary,Public,,,Tanga,Operating
+KWENDOGHOI,120984-0,Dispensary,Public,4.8732,38.4689,Tanga,Operating
 MPONDE VUGA,105390-9,Dispensary,Public,-4.91961,38.41085,Tanga,Operating
 BUMBULI MISSION,100556-0,Hospital,Private,-4.86375,38.47069,Tanga,Operating
 MAHEZANGULU,104020-3,Dispensary,Public,-4.92279,38.52057,Tanga,Operating
@@ -922,7 +922,7 @@ KIDUNDAI,121384-2,Dispensary,Public,-4.45525,38.38183,Tanga,Operating
 MILINGANO,104928-7,Health Center,Public,-4.72056,38.59908,Tanga,Operating
 NKONGOI,106537-4,Dispensary,Private,-4.77699,38.52769,Tanga,Operating
 MAYO,104520-2,Dispensary,Public,-4.84177,38.51515,Tanga,Operating
-KIHITU,120980-8,Dispensary,Public,,,Tanga,Operating
+KIHITU,120980-8,Dispensary,Public,4.8732,38.4689,Tanga,Operating
 NAMHULA,106156-3,Dispensary,Public,-2.07971,33.462,Mara,Operating
 MARAMBEKA,104311-6,Dispensary,Public,-1.87716,34.0493,Mara,Operating
 NANSIMO,106190-2,Dispensary,Public,-2.1495,33.3469,Mara,Operating
@@ -1933,7 +1933,7 @@ FURAHISHA,123679-3,Health Laboratory,Private,-2.53472,32.14011,Geita,Operating
 MAGWESELA,123546-4,Health Laboratory,Private,-2.90216,32.27805,Geita,Operating
 KATAMA,112840-4,Health Laboratory,Private,-2.86551,32.24044,Geita,Operating
 ALEGA,122661-2,Health Laboratory,Private,-2.91492,32.24505,Geita,Operating
-GEITA,120311-6,Clinic,Private,,,Geita,Operating
+GEITA,120311-6,Clinic,Private,-52.87354,32.22945,Geita,Operating
 MAKOYE,111498-2,Hospital,Private,-2.86605,32.24718,Geita,Operating
 LKM,123718-9,Dispensary,Private,-2.90012,32.28672,Geita,Operating
 GEITA PRISON,111559-1,Dispensary,Public,-2.87781,32.22131,Geita,Operating
@@ -2179,7 +2179,7 @@ MICHUNGWANI,124241-1,Dispensary,Public,-5.34874,38.55081,Tanga,Operating
 MGAMBO JKT,102093-2,Dispensary,Public,-5.52884,38.58605,Tanga,Operating
 BOGOLWA,108608-1,Dispensary,Public,-5.597537,38.116767,Tanga,Operating
 KWADOYA,111801-7,Dispensary,Public,-5.42914,38.63153,Tanga,Operating
-SINDENI,120946-9,Health Center,Public,,,Tanga,Operating
+SINDENI,120946-9,Health Center,Public,5.35128,38.22237,Tanga,Operating
 CHABA,122738-8,Health Laboratory,Private,NA,NA,Tanga,Operating
 ST.DORCAS MEDICAL LABORATORY,122647-1,Health Laboratory,Private,-5.42073,38.01631,Tanga,Operating
 HOPE MEDICAL,123581-1,Health Laboratory,Private,-5.42287,38.02381,Tanga,Operating
@@ -2547,7 +2547,7 @@ BIRA,121013-7,Clinic,Private,NA,NA,Dar es Salaam,Operating
 JOJO HEALTH CARE,114677-8,Clinic,Private,-6.49465,39.11105,Dar es Salaam,Operating
 TIBA HEALTH CARE,109837-5,Clinic,Private,-6.80378,39.28118,Dar es Salaam,Operating
 NDUNGURU,113441-0,Health Laboratory,Private,-6.89882,39.21429,Dar es Salaam,Operating
-WESTLAND,121586-2,Health Laboratory,Private,,,Dar es Salaam,Operating
+WESTLAND,121586-2,Health Laboratory,Private,-6.89777,3.91961,Dar es Salaam,Operating
 DOCTORS PLAZA,110799-4,Clinic,Private,-6.79897,39.28473,Dar es Salaam,Operating
 KOREA,120428-8,Clinic,Private,NA,NA,Dar es Salaam,Operating
 NGUVU KAZI,124100-9,Health Laboratory,Private,-6.97952,39.09335,Dar es Salaam,Operating
@@ -2572,7 +2572,7 @@ MAC,123671-0,Health Laboratory,Private,-6.84381,39.17029,Dar es Salaam,Operating
 AGA KHAN,120416-3,Clinic,Private,-6.82893,39.28424,Dar es Salaam,Operating
 CCP MEDICINE MEDICAL CENTER,110524-6,Clinic,Private,-6.841209,39.148093,Dar es Salaam,Operating
 MICO MSONGOLA,121087-1,Dispensary,Private,NA,NA,Dar es Salaam,Operating
-MEDLIFE,121585-4,Health Laboratory,Private,,,Dar es Salaam,Operating
+MEDLIFE,121585-4,Health Laboratory,Private,-6.8532,3.91799,Dar es Salaam,Operating
 MCH,114259-5,Health Laboratory,Private,NA,NA,Dar es Salaam,Operating
 AFYA JAMII,122576-2,Dispensary,Private,-6.90825,39.17826,Dar es Salaam,Operating
 ARAFA MOOD,110533-7,Dispensary,Private,-6.820831,39.216935,Dar es Salaam,Operating
@@ -2743,7 +2743,7 @@ CLAIN,122288-4,Dispensary,Private,-6.88716,39.14365,Dar es Salaam,Operating
 NGWALE,123542-3,Health Laboratory,Private,-6.99736,39.08446,Dar es Salaam,Operating
 YJ BANANA,121954-2,Health Laboratory,Private,NA,NA,Dar es Salaam,Operating
 Mangesani Charitable,121211-7,Dispensary,Private,NA,NA,Dar es Salaam,Operating
-JAMII,121564-9,Health Laboratory,Private,,,Dar es Salaam,Operating
+JAMII,121564-9,Health Laboratory,Private,-6.86329,3.92326,Dar es Salaam,Operating
 UNIQUE HEALTH,124442-5,Health Laboratory,Private,-6.80391,39.27866,Dar es Salaam,Operating
 AMANA,100097-5,Hospital,Public,-6.82674,39.25926,Dar es Salaam,Operating
 FIT TO FLY AVIATION,112650-7,Clinic,Private,-6.85194,39.23029,Dar es Salaam,Operating
@@ -2845,7 +2845,7 @@ BANK OF TANZANIA,100210-4,Clinic,Private,-6.81464,39.29298,Dar es Salaam,Operati
 ARISE,121180-4,Clinic,Private,-6.82187,39.27838,Dar es Salaam,Operating
 WADOWE MEDICAL,123870-8,Health Laboratory,Private,-6.84712,39.16029,Dar es Salaam,Operating
 KOMBOLE,111652-4,Dispensary,Private,-6.86804,39.19021,Dar es Salaam,Operating
-NDORASIA  CENTRE,121562-3,Health Laboratory,Private,,,Dar es Salaam,Operating
+NDORASIA  CENTRE,121562-3,Health Laboratory,Private,-6.82762,3.92338,Dar es Salaam,Operating
 MASS,121764-5,Dispensary,Private,-6.86725,39.22359,Dar es Salaam,Operating
 COMMUNITY EYE AND VISION CENTRE,111618-5,Clinic,Private,-6.88291,39.15532,Dar es Salaam,Operating
 DAR HEALTH CORNER,123199-2,Clinic,Private,-6.79868,39.28419,Dar es Salaam,Operating
@@ -2864,7 +2864,7 @@ LB,113437-8,Health Laboratory,Private,NA,NA,Dar es Salaam,Operating
 SHIRA,122918-6,Dispensary,Private,-7.03483,39.09923,Dar es Salaam,Operating
 ALPHA and OMEGA,122065-6,Health Laboratory,Private,NA,NA,Dar es Salaam,Operating
 MICO Ulongoni,123626-4,Dispensary,Private,NA,NA,Dar es Salaam,Operating
-PIMAX MEDICAL,121563-1,Health Laboratory,Private,,,Dar es Salaam,Operating
+PIMAX MEDICAL,121563-1,Health Laboratory,Private,-6.85396,3.9208,Dar es Salaam,Operating
 VINGUNGUTI,108265-0,Dispensary,Public,-6.84832,39.22546,Dar es Salaam,Operating
 AKIM DENTAL SERVICES,100072-8,Clinic,Private,-6.81857,39.28699,Dar es Salaam,Operating
 REGENCY,112636-6,Clinic,Private,-6.815688,39.283424,Dar es Salaam,Operating
@@ -3085,7 +3085,7 @@ FAMILY,112810-7,Dispensary,Private,-2.47361,32.91075,Mwanza,Operating
 TANZANIA BREWERIES,107761-9,Dispensary,Private,-2.47544,32.90367,Mwanza,Operating
 KMT BUSWELU,103270-5,Dispensary,Private,-2.514875,32.973849,Mwanza,Operating
 Rocky City,121207-5,Health Laboratory,Private,-2.47277,32.91173,Mwanza,Operating
-IMANI,121613-4,Health Laboratory,Private,,,Mwanza,Operating
+IMANI,121613-4,Health Laboratory,Private,2.46547,32.92735,Mwanza,Operating
 MARIE STOPES,109425-9,Dispensary,Private,-2.49889,32.90364,Mwanza,Operating
 CHARITY,113319-8,Health Laboratory,Private,-2.53867,32.95487,Mwanza,Operating
 MONAZ,114423-7,Health Laboratory,Private,-2.5031,32.89717,Mwanza,Operating
@@ -3799,8 +3799,8 @@ KIBWERA,102638-4,Dispensary,Public,-1.31806,31.12159,Kagera,Operating
 FAMILY,113042-6,Health Laboratory,Private,-1.53272,31.15348,Kagera,Operating
 NYAKAGOYAGOYE,108924-2,Dispensary,Public,-1.68328,30.98312,Kagera,Operating
 KIGARAMA,108931-7,Dispensary,Public,-1.2879,31.02337,Kagera,Operating
-KIBONA,121362-8,Health Center,Public,,,Kagera,Operating
-KAGUTU,120898-2,Dispensary,Public,,,Kagera,Operating
+KIBONA,121362-8,Health Center,Public,1.35121,31.07019,Kagera,Operating
+KAGUTU,120898-2,Dispensary,Public,1.50207,31.10255,Kagera,Operating
 BWERANYANGE,109572-8,Dispensary,Public,-1.76446,30.87526,Kagera,Operating
 KAYANGA PRISON,102514-7,Dispensary,Public,-1.53188,31.15598,Kagera,Operating
 RUGU,107135-6,Dispensary,Public,-1.82922,31.15933,Kagera,Operating
@@ -3842,7 +3842,7 @@ ST. RAPHAEL'S  NYAKAIGA,106659-6,Hospital,Private,-1.73125,30.96309,Kagera,Opera
 BUJURUGA,100493-6,Dispensary,Public,-1.592144,31.17456,Kagera,Operating
 KEYMARK,120344-7,Clinic,Private,-1.53251,31.15113,Kagera,Operating
 KAYANGA,102512-1,Health Center,Public,-1.53465,31.15282,Kagera,Operating
-NYARUGANDO,120890-9,Dispensary,Public,,,Kagera,Operating
+NYARUGANDO,120890-9,Dispensary,Public,1.55997,31.21571,Kagera,Operating
 MWEKA,122640-6,Health Laboratory,Private,-1.53237,31.15286,Kagera,Operating
 KATWE,102500-6,Dispensary,Public,-1.41536,31.12823,Kagera,Operating
 BISHESHE,109004-2,Dispensary,Public,-1.67774,31.11907,Kagera,Operating
@@ -5055,7 +5055,7 @@ JOMI,113502-9,Health Laboratory,Private,-6.63071,39.1522,Dar es Salaam,Operating
 JAE,123658-7,Clinic,Private,NA,NA,Dar es Salaam,Operating
 ST. Y'SALEM,123952-4,Dispensary,Private,-6.72883,39.23024,Dar es Salaam,Operating
 SMART,111114-5,Clinic,Private,NA,39.24996,Dar es Salaam,Operating
-Tanzania PeopleÂ’s Defence Force(TPDF),123025-9,Blood Transfusion Centre at Zonal Level,Public,NA,NA,Dar es Salaam,Operating
+Tanzania People’s Defence Force(TPDF),123025-9,Blood Transfusion Centre at Zonal Level,Public,NA,NA,Dar es Salaam,Operating
 THYROCARE,123667-8,Health Laboratory,Private,-6.78399,39.25599,Dar es Salaam,Operating
 EAGLE,121905-4,Health Laboratory,Private,NA,NA,Dar es Salaam,Operating
 Melkianc,111450-3,Clinic,Private,-6.65799,39.18011,Dar es Salaam,Operating
@@ -5238,7 +5238,7 @@ CURE AFYA,112575-6,Clinic,Private,-6.77458,39.27063,Dar es Salaam,Operating
 SAFECARE,120338-9,Clinic,Private,-6.48895,39.24319,Dar es Salaam,Operating
 KILUVYA JWTZ,102886-9,Dispensary,Public,-6.80153,39.0361,Pwani,Operating
 KIHARE,102738-2,Dispensary,Public,-7.46942,38.6695,Pwani,Operating
-PANGALAMWENGEREZA,122425-2,Dispensary,Public,,,Pwani,Operating
+PANGALAMWENGEREZA,122425-2,Dispensary,Public,7.391343,38.622732,Pwani,Operating
 MAFIZI,103881-9,Dispensary,Public,-6.98046,38.58892,Pwani,Operating
 NYANI,115319-6,Dispensary,Public,-7.15514,38.19594,Pwani,Operating
 KISOPWA,103133-5,Dispensary,Public,NA,NA,Pwani,Operating
@@ -5375,7 +5375,7 @@ NGIPA,120437-9,Dispensary,Public,-5.56941,36.48388,Manyara,Operating
 KIPERESA,103001-4,Dispensary,Public,-5.24444,36.29265,Manyara,Operating
 ORKINE,113903-9,Dispensary,Public,NA,NA,Manyara,Operating
 KILONGOLA MEDICAL CARE,124046-4,Dispensary,Private,-5.55808,37.20665,Manyara,Operating
-SHIRIMA,123837-7,Health Laboratory,Private,,,Manyara,Operating
+SHIRIMA,123837-7,Health Laboratory,Private,5.7236379,37.0960909,Manyara,Operating
 OLKITIKITI,106911-1,Dispensary,Public,-5.51656,37.11734,Manyara,Operating
 IRKIUSHIOIBOR,101744-1,Dispensary,Public,-4.79417,36.38869,Manyara,Operating
 NJORO,106506-9,Dispensary,Public,-5.25182,36.45435,Manyara,Operating
@@ -6040,7 +6040,7 @@ NKOMANG'OMBE,106533-3,Dispensary,Public,-10.29802,34.73075,Njombe,Operating
 UTILILI,108212-2,Dispensary,Public,-9.70425,34.43046,Njombe,Operating
 MUNDINDI,121238-0,Health Center,Public,-9.87596,34.96527,Njombe,Operating
 MADILU,103854-6,Dispensary,Public,-9.72405,34.75509,Njombe,Operating
-LEE,113062-4,Health Laboratory,Private,,,Njombe,Operating
+LEE,113062-4,Health Laboratory,Private,-9.48384,3.44253,Njombe,Operating
 MLANGALI,102013-0,Health Center,Public,-9.77687,34.51833,Njombe,Operating
 LUDEWA KIJIJINI,103621-9,Dispensary,Private,-10.11433,34.69081,Njombe,Operating
 KIYOGO,103238-2,Dispensary,Public,-10.5038,34.7144,Njombe,Operating
@@ -6560,7 +6560,7 @@ ST. BENEDICTS,107571-2,Hospital,Private,-10.49819,39.02691,Mtwara,Operating
 MPETA,105366-9,Dispensary,Public,-10.87475,38.94751,Mtwara,Operating
 MITESA,104997-2,Dispensary,Public,-10.8939,39.1636,Mtwara,Operating
 ST. THERESIA,106148-0,Health Center,Private,-11.033011,39.156211,Mtwara,Operating
-NAKARARA,121483-2,Dispensary,Public,,,Mtwara,Operating
+NAKARARA,121483-2,Dispensary,Public,532587,8778937,Mtwara,Operating
 MIJELEJELE,104894-1,Dispensary,Public,-10.80844,39.01753,Mtwara,Operating
 NAMATUTWE,106115-9,Dispensary,Public,-10.71112,38.5565,Mtwara,Operating
 CHIWALE,100861-4,Health Center,Public,-10.59045,38.61624,Mtwara,Operating
@@ -6578,13 +6578,13 @@ MASASI,113932-8,Hospital,Public,-10.92228,39.04015,Mtwara,Operating
 MAGEREZA NAMAJANI,103959-3,Dispensary,Public,-10.72237,38.61907,Mtwara,Operating
 MBUYUNI,104672-1,Dispensary,Public,-10.910363,39.04495,Mtwara,Operating
 MAKONG'ONDA,104126-8,Dispensary,Public,-11.02657,39.25684,Mtwara,Operating
-NAMYOMYO,121481-6,Dispensary,Public,,,Mtwara,Operating
+NAMYOMYO,121481-6,Dispensary,Public,532430,8778889,Mtwara,Operating
 MNOLELA,120795-0,Dispensary,Public,-10.83629,39.07719,Mtwara,Operating
 CHIKOWETI,100805-1,Dispensary,Public,-10.6779,38.657470000000004,Mtwara,Operating
 MAPILI,104299-3,Dispensary,Public,-11.04812,39.34164,Mtwara,Operating
 NANJOTA,106186-0,Dispensary,Private,-10.81821,38.97701,Mtwara,Operating
 NAGAGA,106068-0,Health Center,Public,-10.9007,39.1072,Mtwara,Operating
-LUKULEDI A,120906-3,Dispensary,Public,,,Mtwara,Operating
+LUKULEDI A,120906-3,Dispensary,Public,8832429,37479419,Mtwara,Operating
 KANYIMBI,102347-2,Dispensary,Public,NA,NA,Mtwara,Operating
 SUZAN,123950-8,Dispensary,Private,-10.62023,39.01454,Mtwara,Operating
 NAMWANGA,106158-9,Dispensary,Public,-10.76056,39.02797,Mtwara,Operating
@@ -6611,7 +6611,7 @@ Chisegu,100844-0,Dispensary,Public,-10.68222,38.88448,Mtwara,Operating
 NEIFA,123282-6,Health Laboratory,Private,-10.72571,38.80574,Mtwara,Operating
 CHIKUMBA,100806-9,Dispensary,Private,-10.73525,38.8056,Mtwara,Operating
 DR. MWAMBE,101018-0,Health Center,Private,-10.73775,38.80922,Mtwara,Operating
-MTANDI,121338-8,Health Center,Public,,,Mtwara,Operating
+MTANDI,121338-8,Health Center,Public,3,4,Mtwara,Operating
 MACHOMBE,122521-8,Dispensary,Public,NA,NA,Mtwara,Operating
 KUDRA.,120760-4,Health Laboratory,Private,NA,NA,Mtwara,Operating
 MATAWALE,122523-4,Dispensary,Public,-10.78103,38.77565,Mtwara,Operating
@@ -6907,7 +6907,7 @@ SHALOM,112604-4,Health Laboratory,Private,-8.91353,33.48804,Mbeya,Operating
 Southern Highlands Zone,123023-4,Blood Transfusion Centre at Zonal Level,Public,NA,NA,Mbeya,Operating
 HOREB OBSY AND GYN SPECIALIZED,112268-8,Clinic,Private,-8.91903,33.47218,Mbeya,Operating
 ITENDE JKT,101971-0,Dispensary,Public,-8.91713,33.42975,Mbeya,Operating
-NEW ERA,122645-5,Health Laboratory,Private,,,Mbeya,Operating
+NEW ERA,122645-5,Health Laboratory,Private,8.8918,33.4342,Mbeya,Operating
 SILOAM,122134-0,Health Laboratory,Private,NA,33.469704,Mbeya,Operating
 CARPENAUM,120743-0,Clinic,Private,-8.9064,33.4996,Mbeya,Operating
 FOREST,101150-1,Clinic,Private,-8.90727,33.44689,Mbeya,Operating
@@ -7348,7 +7348,7 @@ DAUDI,100957-0,Health Center,Public,-3.75941,35.55564,Manyara,Operating
 MURRAY,105706-6,Dispensary,Public,-3.964254,35.55627,Manyara,Operating
 KUTA,103347-1,Dispensary,Public,-3.99869,35.57953,Manyara,Operating
 MAGEREZA,103933-8,Dispensary,Public,-3.853399,35.541649,Manyara,Operating
-MOZAF - R,122481-5,Dispensary,Private,,,Manyara,Operating
+MOZAF - R,122481-5,Dispensary,Private,3.5114,35.332,Manyara,Operating
 GUNYODA,101271-5,Dispensary,Public,-3.78456,35.4861,Manyara,Operating
 ST. MARY OF FATIMA,110762-2,Dispensary,Private,-3.73806,35.55654,Manyara,Operating
 KAINAM,102193-0,Health Center,Public,-3.91903,35.58611,Manyara,Operating
@@ -7363,7 +7363,7 @@ KIVULINI HEALTH,123703-1,Health Laboratory,Private,-3.52111,35.32461,Manyara,Ope
 GEDAMAR,120628-3,Dispensary,Public,NA,NA,Manyara,Operating
 ENDAGIKOT,121305-7,Dispensary,Public,-3.51481,35.31292,Manyara,Operating
 MBULU,111321-6,Hospital,Public,-3.860454,35.543917,Manyara,Operating
-GIDAMBA,120765-3,Dispensary,Public,,,Manyara,Operating
+GIDAMBA,120765-3,Dispensary,Public,3459,353034,Manyara,Operating
 MWAMISHALI,105885-8,Dispensary,Public,-3.53198,34.25078,Simiyu,Operating
 MINYANDA,104949-3,Dispensary,Public,-3.46549,34.14326,Simiyu,Operating
 MWANDOYA,105913-8,Health Center,Public,-3.21996,34.21045,Simiyu,Operating
@@ -7526,12 +7526,12 @@ KASHENYE,102431-4,Dispensary,Public,-1.00699,31.75645,Kagera,Operating
 KAGERA SALIENT,109969-6,Dispensary,Private,-1.25211,31.42428,Kagera,Operating
 KAKIRI,122397-3,Dispensary,Public,-1.16411,31.27351,Kagera,Operating
 KAGERA SUGAR,102166-6,Hospital,Private,-1.21332,31.27517,Kagera,Operating
-MOSES HEALTH,123849-2,Health Laboratory,Private,,,Kagera,Operating
+MOSES HEALTH,123849-2,Health Laboratory,Private,-10.01301,31.41543,Kagera,Operating
 NYANKERE,106782-6,Dispensary,Public,-1.39394,31.37168,Kagera,Operating
-KAKUNYU,121790-0,Health Center,Public,,,Kagera,Operating
+KAKUNYU,121790-0,Health Center,Public,1.04606,31.03872,Kagera,Operating
 UPENDO,123863-3,Health Laboratory,Private,-1.13111,31.24291,Kagera,Operating
 BUGANGO,100439-9,Dispensary,Private,-1.00132,31.01005,Kagera,Operating
-KENYANA,122774-3,Dispensary,Public,,,Kagera,Operating
+KENYANA,122774-3,Dispensary,Public,9855128,3116327,Kagera,Operating
 BUGANDIKA,100436-5,Dispensary,Public,-1.25709,31.65784,Kagera,Operating
 MUGANA,105623-3,Hospital,Private,-1.21296,31.69542,Kagera,Operating
 KIGARAMA,102700-2,Dispensary,Private,-1.04479,31.75891,Kagera,Operating
@@ -7539,7 +7539,7 @@ ISHOZI,101911-6,Dispensary,Public,-1.15674,31.76817,Kagera,Operating
 MINZIRO,104953-5,Dispensary,Public,-1.03923,31.54313,Kagera,Operating
 BUNAZI,100564-4,Health Center,Public,-1.20995,31.40942,Kagera,Operating
 KAIZILEGE,120500-4,Dispensary,Private,-1.26055,31.41081,Kagera,Operating
-BUTURAGE,121877-5,Dispensary,Public,,,Kagera,Operating
+BUTURAGE,121877-5,Dispensary,Public,1.1645,31.3818,Kagera,Operating
 KAKUNYU,110219-3,Dispensary,Public,-1.03253,30.93962,Kagera,Operating
 KASHANGA,102425-6,Dispensary,Public,-1.20881,31.70203,Kagera,Operating
 GERA,101200-4,Dispensary,Public,-1.25379,31.75239,Kagera,Operating
@@ -7685,10 +7685,10 @@ ILONGO,101763-1,Dispensary,Public,-4.07114,34.62179,Singida,Operating
 KINANKAMBA,121938-5,Dispensary,Public,-4.42582,34.65456,Singida,Operating
 ISHENGA,101905-8,Dispensary,Public,-4.39463,34.68501,Singida,Operating
 ISHINSI,101910-8,Dispensary,Public,-4.35008,34.58816,Singida,Operating
-KWEKUYU,121236-4,Dispensary,Public,,,Tanga,Operating
+KWEKUYU,121236-4,Dispensary,Public,513006,9467491,Tanga,Operating
 MKINGA LEO,105075-6,Dispensary,Public,-4.84629,39.0861,Tanga,Operating
 GOMBERO,101240-0,Dispensary,Public,-4.95399,38.9495,Tanga,Operating
-PERANI,121237-2,Dispensary,Public,,,Tanga,Operating
+PERANI,121237-2,Dispensary,Public,513006,9467491,Tanga,Operating
 MWAKIJEMBE,105830-4,Dispensary,Public,-4.53312,38.9131,Tanga,Operating
 MANZA,104286-0,Dispensary,Public,-4.8282,39.1532,Tanga,Operating
 MAGATI,103911-4,Dispensary,Public,-4.82328,38.8132,Tanga,Operating
@@ -7700,7 +7700,7 @@ MHINDURO,104805-7,Dispensary,Public,-4.93077,38.8003,Tanga,Operating
 MICHAEL,124028-2,Dispensary,Private,-4.86762,38.80481,Tanga,Operating
 MARAMBA JKT,104310-8,Dispensary,Public,-4.86885,38.8078,Tanga,Operating
 MJESANI,105024-4,Health Center,Public,-5.02812,38.88301,Tanga,Operating
-MAVOVO,121543-3,Dispensary,Public,,,Tanga,Operating
+MAVOVO,121543-3,Dispensary,Public,4.77271,38.84048,Tanga,Operating
 MOA,105262-0,Dispensary,Public,-4.76797,39.1707,Tanga,Operating
 HOROHORO,101390-3,Dispensary,Public,-4.62459,39.10087,Tanga,Operating
 DUGA MAFORONI,101033-9,Dispensary,Public,-4.681402,39.101821,Tanga,Operating
@@ -7710,20 +7710,20 @@ DODA,100989-3,Dispensary,Public,-4.91117,39.08805,Tanga,Operating
 MAGAONI,121549-0,Dispensary,Public,-4.87313,39.11396,Tanga,Operating
 KILANGA,102814-1,Dispensary,Public,-4.91248,38.7059,Tanga,Operating
 MAZOLA KILIFI,114790-9,Dispensary,Public,-4.84976,39.02647,Tanga,Operating
-MUZI  KIFISHE,121546-6,Dispensary,Public,,,Tanga,Operating
+MUZI  KIFISHE,121546-6,Dispensary,Public,4.86908,38.75076,Tanga,Operating
 KWALE,114789-1,Dispensary,Public,-4.96549,39.13969,Tanga,Operating
 MAGODI,103972-6,Dispensary,Public,-4.774457,39.048863,Tanga,Operating
-MWAKIKONGE,121545-8,Dispensary,Public,,,Tanga,Operating
+MWAKIKONGE,121545-8,Dispensary,Public,4.67825,39.05908,Tanga,Operating
 HOROHORO BOARDER,111457-8,Dispensary,Public,-4.601755,39.100564,Tanga,Operating
 MWANYUMBA,105947-6,Dispensary,Public,-4.83026,38.8603,Tanga,Operating
-MZINGI MWAGOGO,121547-4,Dispensary,Public,,,Tanga,Operating
+MZINGI MWAGOGO,121547-4,Dispensary,Public,4.81374,3908359,Tanga,Operating
 KIBEWANI,121548-2,Dispensary,Public,-4.73641,39.07049,Tanga,Operating
 BAMBA MAVENGERO,100295-5,Dispensary,Public,-4.97254,38.7966,Tanga,Operating
-HEMSAMBIA,121667-0,Dispensary,Public,,,Tanga,Operating
+HEMSAMBIA,121667-0,Dispensary,Public,4.81674,38.79547,Tanga,Operating
 Ram Clinical,121904-7,Health Laboratory,Private,-4.86957,38.80573,Tanga,Operating
 LUGONGO ESTATE,103651-6,Dispensary,Public,-4.87224,38.83406,Tanga,Operating
 MTIMBWANI,105565-6,Dispensary,Public,-4.95747,39.08878,Tanga,Operating
-MKINGA DISTRICT,120357-9,Hospital,Public,,,Tanga,Operating
+MKINGA DISTRICT,120357-9,Hospital,Public,4.81992,39.1149,Tanga,Operating
 VYERU,108292-4,Dispensary,Public,-4.95496,39.1382,Tanga,Operating
 DUGA HEALTH ORATOTY,122634-9,Health Laboratory,Private,NA,NA,Tanga,Operating
 KIGONGOI,102722-6,Dispensary,Public,-4.81,38.7734,Tanga,Operating
@@ -7732,7 +7732,7 @@ VUO,108287-4,Dispensary,Public,-4.80556,39.15088,Tanga,Operating
 MATEMBONI,121550-8,Dispensary,Public,-4.89333,38.77447,Tanga,Operating
 BOMA,100394-6,Dispensary,Public,-4.85865,39.19406,Tanga,Operating
 RS,121946-8,Health Laboratory,Private,NA,NA,Tanga,Operating
-MWAKIKOYA,114786-7,Dispensary,Public,,,Tanga,Operating
+MWAKIKOYA,114786-7,Dispensary,Public,4.67887,39.13969,Tanga,Operating
 DUGA SIGAYA,101034-7,Dispensary,Public,-4.70868,39.1209,Tanga,Operating
 MAYOMBONI,111086-5,Dispensary,Public,-4.742973,39.165187,Tanga,Operating
 KILULU DUGA,102881-0,Dispensary,Public,-4.76032,39.12238,Tanga,Operating
@@ -7901,7 +7901,7 @@ MPANGA,105342-0,Dispensary,Private,-8.93667,35.8133,Morogoro,Operating
 UTENGULE,108206-4,Dispensary,Public,-8.95321,35.8372,Morogoro,Operating
 MSOLWA MLIMBA,113119-2,Dispensary,Public,-8.7951,35.86138,Morogoro,Operating
 IDETE,101473-7,Dispensary,Public,-8.101,36.36,Morogoro,Operating
-UCHINDILE,123075-4,Health Center,Public,,,Morogoro,Operating
+UCHINDILE,123075-4,Health Center,Public,-8.7722,354103,Morogoro,Operating
 IPINDE,101831-6,Dispensary,Public,-9.08979,35.7011,Morogoro,Operating
 CHISANO,100843-2,Dispensary,Public,-8.65992,35.8535,Morogoro,Operating
 TAWETA,107782-5,Dispensary,Private,-9.0216,35.6066,Morogoro,Operating
@@ -8333,7 +8333,7 @@ MANU,104274-6,Dispensary,Public,-3.31547,37.44272,Kilimanjaro,Operating
 LONGUO,113795-9,Dispensary,Private,-3.30716,37.33065,Kilimanjaro,Operating
 SANGO,107287-5,Dispensary,Public,-3.34109,37.42072,Kilimanjaro,Operating
 NGAJONI,106330-4,Dispensary,Public,-3.36202,37.5034,Kilimanjaro,Operating
-MOSHI,123818-7,Hospital,Public,,,Kilimanjaro,Operating
+MOSHI,123818-7,Hospital,Public,345418,3739888,Kilimanjaro,Operating
 MIWALENI,110767-1,Dispensary,Private,-3.43162,37.44136,Kilimanjaro,Operating
 MERESINI,104743-0,Dispensary,Private,-3.36866,37.54626,Kilimanjaro,Operating
 TPC,122584-6,Hospital,Private,-10.36348,37.36291,Kilimanjaro,Operating
@@ -8371,10 +8371,10 @@ BAKWATA NJIA PANDA,100236-9,Dispensary,Private,-3.40915,37.51853,Kilimanjaro,Ope
 KINDI RC,108521-6,Dispensary,Private,-3.27365,37.27835,Kilimanjaro,Operating
 MATELA,124033-2,Dispensary,Private,-10.58579,37.31483,Kilimanjaro,Operating
 MIKOCHENI,104903-0,Dispensary,Public,-3.59359,37.38903,Kilimanjaro,Operating
-URU KUSINI,122362-7,Health Center,Public,,,Kilimanjaro,Operating
+URU KUSINI,122362-7,Health Center,Public,3277790,37341146,Kilimanjaro,Operating
 MATERUNI,104463-5,Dispensary,Public,-3.263897,37.393909,Kilimanjaro,Operating
 MSHIRI,111465-1,Dispensary,Public,-3.26231,37.52856,Kilimanjaro,Operating
-NJIAPANDA,122360-1,Dispensary,Public,,,Kilimanjaro,Operating
+NJIAPANDA,122360-1,Dispensary,Public,3409815,37523305,Kilimanjaro,Operating
 URU MISSION,108153-8,Dispensary,Private,-3.25291,37.35431,Kilimanjaro,Operating
 LOLE,103572-4,Dispensary,Public,-3.2627100000000002,37.573480000000004,Kilimanjaro,Operating
 MABOGINI,103823-1,Dispensary,Public,-3.41215,37.36509,Kilimanjaro,Operating
@@ -8405,7 +8405,7 @@ FARAJA,108632-1,Hospital,Private,-3.39006,37.55075,Kilimanjaro,Operating
 MWIKA,106017-7,Health Center,Public,-3.28629,37.56269,Kilimanjaro,Operating
 MATALA,120663-0,Dispensary,Public,-3.205937,37.334235,Kilimanjaro,Operating
 JOSAGI,112952-7,Health Laboratory,Private,-3.43775,37.38665,Kilimanjaro,Operating
-KILEUO,123401-2,Dispensary,Public,,,Kilimanjaro,Operating
+KILEUO,123401-2,Dispensary,Public,33395381,374448745,Kilimanjaro,Operating
 MABUNGO,120665-5,Dispensary,Public,-3.245316,37.303008,Kilimanjaro,Operating
 KARMEL,102386-0,Dispensary,Private,-3.33759,37.48723,Kilimanjaro,Operating
 KIDIA,109563-7,Health Center,Private,-3.30309,37.41348,Kilimanjaro,Operating
@@ -8454,7 +8454,7 @@ KINDI GVT,102935-4,Dispensary,Public,-3.29072,37.27655,Kilimanjaro,Operating
 UPENDO,113859-3,Dispensary,Private,-3.30782,37.34208,Kilimanjaro,Operating
 NJARI,106485-6,Dispensary,Public,-3.25066,37.36879,Kilimanjaro,Operating
 KILEMA,102822-4,Hospital,Private,-3.30553,37.49649,Kilimanjaro,Operating
-CHEKERENI WERUWERU,122361-9,Dispensary,Public,,,Kilimanjaro,Operating
+CHEKERENI WERUWERU,122361-9,Dispensary,Public,3395112,37320432,Kilimanjaro,Operating
 KIKARARA,102771-3,Dispensary,Public,-3.32741,37.387,Kilimanjaro,Operating
 UZIMA,114602-6,Dispensary,Private,-3.48991,37.43625,Kilimanjaro,Operating
 TAN OPTIC CO. LTD,121664-7,Optical Facility,Private,NA,NA,Kilimanjaro,Operating
@@ -8708,7 +8708,7 @@ BUGARAMA,100446-4,Health Center,Public,-3.27083,32.42476,Shinyanga,Operating
 CHIEFSTONE,123226-3,Dispensary,Private,-3.90531,32.93815,Shinyanga,Operating
 MWALUGULU,110028-8,Health Center,Public,-3.84036,32.81078,Shinyanga,Operating
 NGAYA,106364-3,Health Center,Public,-3.64017,32.62892,Shinyanga,Operating
-KALOLE,120805-7,Dispensary,Public,,,Shinyanga,Operating
+KALOLE,120805-7,Dispensary,Public,3.33735,32.49683,Shinyanga,Operating
 ILOGI,123602-5,Dispensary,Public,-3.53836,32.26464,Shinyanga,Operating
 SEGESE,120576-4,Clinic,Private,-3.532517,32.419727,Shinyanga,Operating
 JANA,102073-4,Dispensary,Public,-3.79832,32.98216,Shinyanga,Operating
@@ -8726,7 +8726,7 @@ BUYANGE,123605-8,Dispensary,Public,-3.51955,32.48847,Shinyanga,Operating
 SEGESE,107349-3,Dispensary,Public,-3.53232,32.41965,Shinyanga,Operating
 BULIGE WAZAZI,114576-2,Dispensary,Private,-3.527534,32.674316,Shinyanga,Operating
 NYAMINJE,112137-5,Dispensary,Public,-3.60517,32.202184,Shinyanga,Operating
-MEGA,120803-2,Dispensary,Public,,,Shinyanga,Operating
+MEGA,120803-2,Dispensary,Public,3.57922,32.38708,Shinyanga,Operating
 IMANI HEALTH CARE,122794-1,Dispensary,Private,NA,NA,Shinyanga,Operating
 BUYAGU,121895-7,Dispensary,Public,-3.46541,32.51831,Shinyanga,Operating
 GULLA,122241-3,Dispensary,Public,-3.34567,36.45342,Shinyanga,Operating
@@ -8742,13 +8742,13 @@ NTOBO B,110850-5,Dispensary,Public,-3.66257,32.47304,Shinyanga,Operating
 NEW KALUNGU,122651-3,Health Laboratory,Private,NA,NA,Shinyanga,Operating
 ITINDE,111583-1,Dispensary,Public,-3.5871438,32.4610629,Shinyanga,Operating
 MADAHO,123923-5,Dispensary,Public,-3.38276,32.39788,Shinyanga,Operating
-NYIKOBOKO,120804-0,Dispensary,Public,,,Shinyanga,Operating
+NYIKOBOKO,120804-0,Dispensary,Public,3.46361,32.44327,Shinyanga,Operating
 SUNGAMILE,122862-6,Dispensary,Public,-3.87642,32.83828,Shinyanga,Operating
 KAKOLA,111584-9,Dispensary,Public,-3.154,32.2642,Shinyanga,Operating
 BULUMA,110954-5,Dispensary,Public,-3.753477,32.888527,Shinyanga,Operating
 BULIGE,100536-2,Dispensary,Public,-3.52692,32.66974,Shinyanga,Operating
 BUSHING'WE,123529-0,Health Laboratory,Private,-3.24645,32.46141,Shinyanga,Operating
-KABONDO,120807-3,Dispensary,Public,,,Shinyanga,Operating
+KABONDO,120807-3,Dispensary,Public,3.58615,32.77617,Shinyanga,Operating
 BAKWATA KAKOLA,112138-3,Dispensary,Private,-3.2454314,32.459324,Shinyanga,Operating
 MATONANGE,120636-6,Dispensary,Private,-3.5393274,32.42777,Shinyanga,Operating
 WISOLELE,114777-6,Dispensary,Public,-3.5194583,32.488438,Shinyanga,Operating
@@ -8767,17 +8767,17 @@ SHILELA,107417-8,Dispensary,Public,-3.454559,32.41532,Shinyanga,Operating
 RIDGE,114599-4,Dispensary,Private,-3.9045393,32.946922,Shinyanga,Operating
 KAKOLA NO 9,122171-2,Dispensary,Public,-3.13274,32.30621,Shinyanga,Operating
 MWANINGI,123920-1,Dispensary,Public,-3.52693,32.66976,Shinyanga,Operating
-MWANKIMA,120808-1,Dispensary,Public,,,Shinyanga,Operating
+MWANKIMA,120808-1,Dispensary,Public,3.74921,32.80161,Shinyanga,Operating
 NTUNDU,121892-4,Dispensary,Public,-3.59772,32.55336,Shinyanga,Operating
 MALITO,123921-9,Dispensary,Public,-3.45453,32.41534,Shinyanga,Operating
 BUMVA,121924-5,Dispensary,Public,-3.5189425,32.4510252,Shinyanga,Operating
-JOMU,120806-5,Dispensary,Public,,,Shinyanga,Operating
+JOMU,120806-5,Dispensary,Public,3.47191,32.60098,Shinyanga,Operating
 NUNDU,106619-0,Dispensary,Public,-3.45097,32.54211,Shinyanga,Operating
 BUYAMBA,123172-9,Dispensary,Private,-3.64172,32.62833,Shinyanga,Operating
 MGAGA,122848-5,Dispensary,Private,-3.828912,32.607041,Shinyanga,Operating
 BULYANHULU,110351-4,Health Center,Private,-3.227469,32.483936,Shinyanga,Operating
 LUNGUYA,103722-5,Health Center,Public,-3.3828,32.39789,Shinyanga,Operating
-MSALALA,120809-9,Hospital,Public,,,Shinyanga,Operating
+MSALALA,120809-9,Hospital,Public,3.65399,32.45159,Shinyanga,Operating
 MWAKUZUKA,121988-0,Dispensary,Public,-3.33631,32.44804,Shinyanga,Operating
 MKOMBOZI HEALTH,122756-0,Health Laboratory,Private,NA,NA,Shinyanga,Operating
 UMBOGO,123919-3,Dispensary,Public,-3.38537,32.45383,Shinyanga,Operating
@@ -9008,7 +9008,7 @@ MKUZI,105158-0,Health Center,Public,-5.24093,38.8287,Tanga,Operating
 KWABADA,103351-3,Dispensary,Public,-5.31818,38.75372,Tanga,Operating
 SONGA,107531-6,Dispensary,Public,-5.2805,38.64079,Tanga,Operating
 IBRA,113224-0,Health Laboratory,Private,-5.17365,38.78797,Tanga,Operating
-MTITI,120933-7,Dispensary,Public,,,Tanga,Operating
+MTITI,120933-7,Dispensary,Public,38.96647,5.293,Tanga,Operating
 MGAMBO,104767-9,Dispensary,Public,-5.04592,38.61292,Tanga,Operating
 MISALAI,104970-9,Dispensary,Public,-5.0229799999999996,38.63646,Tanga,Operating
 WAMBELE,123375-8,Health Laboratory,Private,NA,NA,Tanga,Operating
@@ -9803,7 +9803,7 @@ IWAFI,102028-8,Dispensary,Public,-9.344792,35.288098,Njombe,Operating
 KIYOYA,121151-5,Clinic,Private,-9.33751,34.76841,Njombe,Operating
 IHALULA,101604-7,Health Center,Public,-9.46292,34.69202,Njombe,Operating
 IDIHANI,101481-0,Dispensary,Public,-9.50728,34.51728,Njombe,Operating
-DANDA,113058-2,Health Laboratory,Private,,,Njombe,Operating
+DANDA,113058-2,Health Laboratory,Private,-9.35116,3.47687,Njombe,Operating
 KIYAULA,111677-1,Dispensary,Public,-9.492144,34.608636,Njombe,Operating
 MFEREKE,112171-4,Dispensary,Public,-9.399196,34.741415,Njombe,Operating
 MAGEREZA,103938-7,Dispensary,Public,NA,NA,Njombe,Operating
@@ -9829,7 +9829,7 @@ JM,124201-5,Health Laboratory,Private,-9.30052,34.77627,Njombe,Operating
 ST.GETRUDE JINO,120772-9,Clinic,Private,-9.34969,34.76941,Njombe,Operating
 ITULIKE,102005-6,Dispensary,Public,-9.28991,34.71133,Njombe,Operating
 JEREN,124117-3,Health Laboratory,Private,-9.54893,35.10874,Njombe,Operating
-MTITU,113049-1,Health Laboratory,Private,,,Njombe,Operating
+MTITU,113049-1,Health Laboratory,Private,-9.3391,3.47685,Njombe,Operating
 ST MARY'S WENDE,112133-4,Dispensary,Private,-9.34724,34.80304,Njombe,Operating
 KIBENA TEA,112135-9,Dispensary,Private,-9.211167,34.778849,Njombe,Operating
 LUSITU,109434-1,Dispensary,Public,-9.579987,34.74045,Njombe,Operating
@@ -9854,11 +9854,11 @@ YAKOBI,108383-1,Dispensary,Public,-9.417109,34.940776,Njombe,Operating
 LWANGU,103784-5,Dispensary,Public,-9.505919,35.010988,Njombe,Operating
 TUMAINI,107918-5,Dispensary,Private,-9.33189,34.76761,Njombe,Operating
 IWUNGILO,102037-9,Dispensary,Public,-9.525149,34.863264,Njombe,Operating
-M2,113051-7,Health Laboratory,Private,,,Njombe,Operating
+M2,113051-7,Health Laboratory,Private,-9.33848,3.47699,Njombe,Operating
 IDUNDA,101495-0,Dispensary,Public,-9.344724,34.928551,Njombe,Operating
 NGALANGA,109566-0,Dispensary,Public,-9.631113,34.92769,Njombe,Operating
 MAGODA,103970-0,Dispensary,Public,-9.431958,34.776404,Njombe,Operating
-FROSIA,113055-8,Health Laboratory,Private,,,Njombe,Operating
+FROSIA,113055-8,Health Laboratory,Private,-9.35287,3.47732,Njombe,Operating
 MGAO,111595-5,Health Center,Private,-9.34713,34.4723,Njombe,Operating
 IGOMA,101561-9,Dispensary,Public,-9.482906,34.863756,Njombe,Operating
 MATARAWE,113880-9,Dispensary,Public,-9.3081,34.77203,Njombe,Operating
@@ -9876,7 +9876,7 @@ MALION,113057-4,Health Laboratory,Private,NA,NA,Njombe,Operating
 ALTO,121474-1,Health Laboratory,Private,-9.33751,37.76852,Njombe,Operating
 IDUCHU,111679-7,Dispensary,Public,-9.57809,34.78143,Njombe,Operating
 WIKICHI,108369-0,Dispensary,Public,-9.332547,34.694429,Njombe,Operating
-JACKOB,113061-6,Health Laboratory,Private,,,Njombe,Operating
+JACKOB,113061-6,Health Laboratory,Private,-9.35929,3.47609,Njombe,Operating
 MAKANJAULA,104084-9,Dispensary,Public,-9.544776,34.817448,Njombe,Operating
 KIFANYA,102678-0,Dispensary,Private,-9.54867,35.11578,Njombe,Operating
 Igominyi,101568-4,Dispensary,Public,-9.452406,34.882627,Njombe,Operating
@@ -9956,7 +9956,7 @@ KATONGOLO,115057-2,Dispensary,Public,-7.43002,30.64936,Rukwa,Operating
 Korongwe,103320-8,Dispensary,Public,-7.159808,30.539316,Rukwa,Operating
 KASU,102448-8,Health Center,Public,-7.65316,31.33374,Rukwa,Operating
 Katani,102463-7,Dispensary,Public,-7.70237,31.2866,Rukwa,Operating
-Kambi katete,111347-1,Dispensary,Public,,,Rukwa,Operating
+Kambi katete,111347-1,Dispensary,Public,7.61554,-31.0107,Rukwa,Operating
 Chala,100700-4,Dispensary,Public,-7.59624,31.2682,Rukwa,Operating
 Nkomolo,106535-8,Health Center,Public,-7.50195,31.03632,Rukwa,Operating
 Izinga,102054-4,Dispensary,Public,-8.028149,30.908202,Rukwa,Operating
@@ -10186,7 +10186,7 @@ URAFIKI,108146-2,Health Center,Private,-2.548208,32.9823,Mwanza,Operating
 2001 GEM PLUS,113310-7,Health Laboratory,Private,-2.56352,32.91265,Mwanza,Operating
 ST.PETER CLAVERY,121057-4,Clinic,Private,-2.584105,32.95521,Mwanza,Operating
 KASUBUYA,122355-1,Dispensary,Public,-3.18289,32.48942,Geita,Operating
-KABIGA AICT,102138-5,Dispensary,Private,,,Geita,Operating
+KABIGA AICT,102138-5,Dispensary,Private,-53.07757,32.75219,Geita,Operating
 BUKULU,122354-4,Dispensary,Public,-3.18289,32.48942,Geita,Operating
 NYIJUNDU,106852-7,Health Center,Public,-3.09164,32.66298,Geita,Operating
 BUSOLWA,100607-1,Dispensary,Public,-2.99855,32.6282,Geita,Operating
@@ -10293,7 +10293,7 @@ MOGWA,105265-3,Dispensary,Public,-4.22838,32.88512,Tabora,Operating
 MALILITA,104176-3,Dispensary,Public,-4.110024,33.323895,Tabora,Operating
 Afranna,122257-9,Health Laboratory,Private,NA,NA,Tabora,Operating
 SIGILI,107460-8,Dispensary,Public,-3.92933,32.9918,Tabora,Operating
-KIGANDU,121255-4,Dispensary,Public,,,Tabora,Operating
+KIGANDU,121255-4,Dispensary,Public,4.66662,32.01252,Tabora,Operating
 KIPUGULU,103015-4,Dispensary,Public,-4.521239,33.359119,Tabora,Operating
 UGEMBE,108023-3,Dispensary,Public,-4.595484,32.971706,Tabora,Operating
 BUSONDO,100609-7,Health Center,Public,-4.68082,33.17812,Tabora,Operating
@@ -10315,7 +10315,7 @@ ITOBO,101995-9,Health Center,Public,-4.17209,33.0152,Tabora,Operating
 KASANGA,102399-3,Dispensary,Public,-4.41358,32.68431,Tabora,Operating
 SHILA,107415-2,Dispensary,Public,-4.24951,33.1034,Tabora,Operating
 MILAMBO ITOBO,104926-1,Dispensary,Public,-4.77786,32.8967,Tabora,Operating
-WITA,108375-7,Dispensary,Public,,,Tabora,Operating
+WITA,108375-7,Dispensary,Public,4.7402,33.29671,Tabora,Operating
 NKINDU,106518-4,Dispensary,Public,-4.465473,32.823521,Tabora,Operating
 KASELA,102411-6,Dispensary,Public,-4.0982,33.007,Tabora,Operating
 SEMEMBELA,107360-0,Dispensary,Public,-4.32718,32.6662,Tabora,Operating
@@ -10690,7 +10690,7 @@ ROCA HEALTH,123010-1,Health Laboratory,Private,-9.26019,33.64284,Mbeya,Operating
 ILENGE,122349-4,Dispensary,Public,-9.20814,33.54055,Mbeya,Operating
 TUKUYU LUTHERAN,107898-9,Health Center,Private,-9.25196,33.64284,Mbeya,Operating
 GAVAO,101187-3,Dispensary,Public,-4.20542,37.50418,Kilimanjaro,Operating
-SAWENI -,121830-4,Dispensary,Public,,,Kilimanjaro,Operating
+SAWENI -,121830-4,Dispensary,Public,4.454037,37.880884,Kilimanjaro,Operating
 MVURE KONGEI,105777-7,Dispensary,Public,-4.487131,38.071847,Kilimanjaro,Operating
 MINYALA,111596-3,Dispensary,Public,-4.414069,37.954221,Kilimanjaro,Operating
 KALEMAWE,102234-2,Dispensary,Public,-4.435717,38.085697,Kilimanjaro,Operating
@@ -11081,7 +11081,7 @@ MITIMIREFU,122407-0,Dispensary,Public,-3.18116,37.06296,Kilimanjaro,Operating
 TUMAINI LAWATE,107932-6,Dispensary,Private,-3.22878,37.09917,Kilimanjaro,Operating
 OLKOLILI,120849-5,Health Center,Public,-3.30327,37.05721,Kilimanjaro,Operating
 IMANI,114845-1,Dispensary,Private,NA,NA,Kilimanjaro,Operating
-EMBUKOI,124019-1,Dispensary,Public,,,Kilimanjaro,Operating
+EMBUKOI,124019-1,Dispensary,Public,3.308986,37.111923,Kilimanjaro,Operating
 KARANSI,120851-1,Dispensary,Public,-3.18324,36.99722,Kilimanjaro,Operating
 FOREST,108475-5,Dispensary,Public,-3.041083,37.0712,Kilimanjaro,Operating
 MAJOJORO,104068-2,Dispensary,Public,-6.91784,33.4655,Tabora,Operating
@@ -11282,7 +11282,7 @@ ITITI,122617-4,Dispensary,Public,-4.77675,34.65782,Singida,Operating
 EAGT UTEMINI,109785-6,Dispensary,Private,-4.81513,34.73931,Singida,Operating
 Amani,121795-9,Health Laboratory,Private,NA,NA,Singida,Operating
 WINDE,113122-6,Health Laboratory,Private,-4.82453,34.76455,Singida,Operating
-VATCAN HEALTH LABORATORY,121530-0,Health Laboratory,Private,,,Singida,Operating
+VATCAN HEALTH LABORATORY,121530-0,Health Laboratory,Private,-4.82013,3.476,Singida,Operating
 SOKOINE,107516-7,Health Center,Public,-4.83115,34.75434,Singida,Operating
 UGHAUGHA,113109-3,Dispensary,Public,-4.90496,34.83833,Singida,Operating
 SAFARI MEDICS POLYCLINIC,115266-9,Clinic,Private,NA,NA,Singida,Operating
@@ -11813,7 +11813,7 @@ NGAMIANI,106339-5,Health Center,Public,-5.07866,39.09653,Tanga,Operating
 NGUVUMALI,106450-0,Dispensary,Public,-5.0788,39.08063,Tanga,Operating
 KICHANGANI,102644-2,Dispensary,Public,-5.12245,39.01545,Tanga,Operating
 SALAAM MEDICS,123313-9,Dispensary,Private,-5.09203,39.09631,Tanga,Operating
-GILLAH,112932-9,Dispensary,Private,,,Tanga,Operating
+GILLAH,112932-9,Dispensary,Private,-508756,39.11358,Tanga,Operating
 AL-MOHLEM,100092-6,Health Center,Private,-5.08303,39.11682,Tanga,Operating
 TANGA CITY,113213-3,Health Laboratory,Private,-5.11679,39.07025,Tanga,Operating
 MST SICKBAY,123225-5,Clinic,Private,-5.02307,39.12751,Tanga,Operating
@@ -11900,7 +11900,7 @@ ITUNYA,102019-7,Dispensary,Public,-6.84411,30.51716,Katavi,Operating
 KASEKESE,102410-8,Health Center,Public,-6.55233,30.68803,Katavi,Operating
 KAPEMBA,115024-2,Dispensary,Public,-5.53721,30.58446,Katavi,Operating
 BUSONGOLA,100612-1,Dispensary,Public,-5.80329,30.59647,Katavi,Operating
-MATAMANKWE,120821-4,Dispensary,Public,,,Mara,Operating
+MATAMANKWE,120821-4,Dispensary,Public,34.33953,1.22566,Mara,Operating
 NYANUNGU,113800-7,Dispensary,Public,-1.40375,34.71104,Mara,Operating
 SORONETA,120816-4,Dispensary,Public,-1.35541,34.44851,Mara,Operating
 URAFIKI,121756-1,Dispensary,Private,-1.46631,34.52206,Mara,Operating
@@ -11921,7 +11921,7 @@ NEEMA PRINMAT,111389-3,Dispensary,Private,-1.465981,34.51873,Mara,Operating
 NYABISAGA,110797-8,Dispensary,Public,-1.27543,34.515091,Mara,Operating
 NYAMWAGA HEALTH,123840-1,Health Laboratory,Private,-1.39588,34.57851,Mara,Operating
 NYAMONGO,106743-8,Health Center,Public,-1.48633,34.5524,Mara,Operating
-KEMBWI,120828-9,Dispensary,Public,,,Mara,Operating
+KEMBWI,120828-9,Dispensary,Public,34.24353,-1.42008,Mara,Operating
 PEMBA,120823-0,Dispensary,Public,-1.27543,34.51509,Mara,Operating
 NYANDAGE,123366-7,Dispensary,Public,-1.42927,34.47395,Mara,Operating
 KOBORI,113940-1,Dispensary,Public,-1.39419,34.57756,Mara,Operating
@@ -11933,7 +11933,7 @@ NEEMA,112592-1,Maternity and Nursing Home,Private,-1.465851,34.5187,Mara,Operati
 ITIRYO,113798-3,Dispensary,Public,-1.38935,34.68099,Mara,Operating
 PEROZI PRINMAT,106991-3,Maternity Home,Private,-1.26452,34.4781,Mara,Operating
 CHACHA WANDERA,113792-6,Dispensary,Private,-1.25548,34.47394,Mara,Operating
-KOROTAMBE,120826-3,Dispensary,Public,,,Mara,Operating
+KOROTAMBE,120826-3,Dispensary,Public,34.283123,-1.125401,Mara,Operating
 WILL'S MEMORIAL,101286-3,Health Center,Private,-1.255731,34.464031,Mara,Operating
 DK,122229-8,Health Laboratory,Private,-1.462618,34.51972,Mara,Operating
 MURIBA,105702-5,Health Center,Public,-1.39666,34.6431,Mara,Operating
@@ -11958,7 +11958,7 @@ KEWANJA,114816-2,Dispensary,Public,-1.3825,34.5335,Mara,Operating
 NYAMOHONDA,123154-7,Dispensary,Public,-1.20641,34.43837,Mara,Operating
 BOREGA A,113797-5,Dispensary,Public,-1.32048,34.58718,Mara,Operating
 MTANA,105530-0,Dispensary,Public,-1.38471,34.28527,Mara,Operating
-WEIGITA,120819-8,Dispensary,Public,,,Mara,Operating
+WEIGITA,120819-8,Dispensary,Public,34.38999,1.43661,Mara,Operating
 NYARWANA,106813-9,Health Center,Public,-1.42075,34.4409,Mara,Operating
 KANGARIANI,120824-8,Dispensary,Public,-1.27543,34.46799,Mara,Operating
 MAGOMA,113934-4,Health Center,Public,-1.34872,34.47287,Mara,Operating
@@ -11971,12 +11971,12 @@ NYANTIRA,106791-7,Dispensary,Public,-1.355901,34.640767,Mara,Operating
 MAGOTO,103987-4,Health Center,Public,-1.35732,34.5606,Mara,Operating
 TURUGETI,123151-3,Dispensary,Public,-1.28479,34.43254,Mara,Operating
 KEMAKORERE,123153-9,Dispensary,Public,-1.38071,34.45115,Mara,Operating
-BISARWI,120820-6,Dispensary,Public,,,Mara,Operating
+BISARWI,120820-6,Dispensary,Public,34.27384,1.4401,Mara,Operating
 KIONGERA,102985-9,Dispensary,Public,-1.22789,34.3689,Mara,Operating
 NYABITOCHO,122392-4,Dispensary,Public,-1.32042,34.54421,Mara,Operating
 NYERERE,112574-9,Health Laboratory,Private,-1.427552,34.18899,Mara,Operating
 NYANGOTO,120827-1,Dispensary,Public,-1.14501,34.50251,Mara,Operating
-MUSEGE,120825-5,Dispensary,Public,,,Mara,Operating
+MUSEGE,120825-5,Dispensary,Public,34.527,-1.33353,Mara,Operating
 NYERERE,120307-4,Dispensary,Private,NA,34.18909,Mara,Operating
 KEBAGA,122822-0,Dispensary,Public,-1.38364,34.38462,Mara,Operating
 KIBUMAYE,102625-1,Dispensary,Private,-1.37495,34.41807,Mara,Operating
@@ -12082,7 +12082,7 @@ DUCE,110691-3,Dispensary,Public,-6.85091,39.271689,Dar es Salaam,Operating
 MCHOMBE MED-CENTRUM,123480-6,Dispensary,Private,-6.89082,36.22101,Dar es Salaam,Operating
 MARA,111528-6,Health Center,Private,-6.89161,39.29571,Dar es Salaam,Operating
 RAD TECH,114490-6,Clinic,Private,-6.86474,39.26196,Dar es Salaam,Operating
-AMANUA,124335-1,Health Laboratory,Private,,,Dar es Salaam,Operating
+AMANUA,124335-1,Health Laboratory,Private,-6.00123,29.00234,Dar es Salaam,Operating
 TEMEKE VISION CENTRE,114195-1,Clinic,Private,NA,NA,Dar es Salaam,Operating
 CHIPANDE 2020,120418-9,Clinic,Private,-6.86515,36.26349,Dar es Salaam,Operating
 GALAMBO,113537-5,Health Laboratory,Private,-6.88243,39.25139,Dar es Salaam,Operating
@@ -12323,7 +12323,7 @@ AZIMIO,100207-0,Dispensary,Public,-11.17379,37.26271,Ruvuma,Operating
 MASUGURU,104427-0,Dispensary,Public,-11.36894,36.88709,Ruvuma,Operating
 NAMPUNGU,106151-4,Dispensary,Public,-10.91525,37.03805,Ruvuma,Operating
 KITANDA,103155-8,Dispensary,Public,-11.11666,37.31739,Ruvuma,Operating
-MTENGASHARI,121496-4,Dispensary,Public,,,Ruvuma,Operating
+MTENGASHARI,121496-4,Dispensary,Public,-11.78836,37.12173,Ruvuma,Operating
 MKOWELA,105117-6,Dispensary,Public,-10.92058,37.94592,Ruvuma,Operating
 FUNDIMBANGA,101161-8,Dispensary,Public,-10.80261,37.03289,Ruvuma,Operating
 CHELEWENI,100764-0,Dispensary,Public,-10.96787,37.45386,Ruvuma,Operating
@@ -12398,7 +12398,7 @@ DR.CHALE,120581-4,Clinic,Private,NA,NA,Dar es Salaam,Operating
 BETHEL,112028-6,Dispensary,Private,-6.78313,39.2221,Dar es Salaam,Operating
 ICS ST ESTER,110605-3,Dispensary,Private,-6.809656,39.107663,Dar es Salaam,Operating
 LINK,121109-3,Health Laboratory,Private,NA,NA,Dar es Salaam,Operating
-SHEKYANDUMI,121588-8,Health Laboratory,Private,,,Dar es Salaam,Operating
+SHEKYANDUMI,121588-8,Health Laboratory,Private,-67.6444,39.15353,Dar es Salaam,Operating
 JOBENA & RUSH,120557-4,Clinic,Private,NA,NA,Dar es Salaam,Operating
 CJC,113256-2,Health Laboratory,Private,NA,NA,Dar es Salaam,Operating
 RALLY,122938-4,Clinic,Private,-6.79465,39.21539,Dar es Salaam,Operating

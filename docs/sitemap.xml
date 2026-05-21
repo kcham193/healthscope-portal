@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://map.ox.ac.uk/healthscope/uganda.html</loc>
-    <lastmod>2026-05-15T11:42:55.334Z</lastmod>
-  </url>
-  <url>
-    <loc>https://map.ox.ac.uk/healthscope/tanzania.html</loc>
-    <lastmod>2026-05-15T11:42:55.105Z</lastmod>
+    <loc>https://map.ox.ac.uk/healthscope/team.html</loc>
+    <lastmod>2026-05-15T12:48:34.208Z</lastmod>
   </url>
   <url>
     <loc>https://map.ox.ac.uk/healthscope/services.html</loc>
-    <lastmod>2026-05-20T11:48:45.315Z</lastmod>
+    <lastmod>2026-05-21T09:45:33.313Z</lastmod>
   </url>
   <url>
     <loc>https://map.ox.ac.uk/healthscope/registry.html</loc>
@@ -18,11 +14,11 @@
   </url>
   <url>
     <loc>https://map.ox.ac.uk/healthscope/kenya.html</loc>
-    <lastmod>2026-05-15T11:42:54.342Z</lastmod>
+    <lastmod>2026-05-15T12:48:33.627Z</lastmod>
   </url>
   <url>
     <loc>https://map.ox.ac.uk/healthscope/help.html</loc>
-    <lastmod>2026-05-15T11:42:54.114Z</lastmod>
+    <lastmod>2026-05-15T12:48:33.366Z</lastmod>
   </url>
   <url>
     <loc>https://map.ox.ac.uk/healthscope/equity.html</loc>
@@ -30,23 +26,23 @@
   </url>
   <url>
     <loc>https://map.ox.ac.uk/healthscope/demographics.html</loc>
-    <lastmod>2026-05-15T11:42:53.685Z</lastmod>
+    <lastmod>2026-05-15T12:48:30.274Z</lastmod>
   </url>
   <url>
     <loc>https://map.ox.ac.uk/healthscope/country-data.html</loc>
-    <lastmod>2026-05-15T11:42:53.560Z</lastmod>
+    <lastmod>2026-05-15T12:48:29.717Z</lastmod>
   </url>
   <url>
     <loc>https://map.ox.ac.uk/healthscope/countries/uganda.html</loc>
-    <lastmod>2026-05-15T11:42:56.144Z</lastmod>
+    <lastmod>2026-05-15T12:48:29.709Z</lastmod>
   </url>
   <url>
     <loc>https://map.ox.ac.uk/healthscope/countries/Nigeria.html</loc>
-    <lastmod>2026-05-15T11:42:55.858Z</lastmod>
+    <lastmod>2026-05-15T12:48:29.705Z</lastmod>
   </url>
   <url>
     <loc>https://map.ox.ac.uk/healthscope/countries/Botswana.html</loc>
-    <lastmod>2026-05-15T11:42:55.541Z</lastmod>
+    <lastmod>2026-05-15T12:48:29.704Z</lastmod>
   </url>
   <url>
     <loc>https://map.ox.ac.uk/healthscope/about.html</loc>
@@ -54,31 +50,31 @@
   </url>
   <url>
     <loc>https://map.ox.ac.uk/healthscope/countries/Benin.html</loc>
-    <lastmod>2026-05-15T11:42:55.395Z</lastmod>
+    <lastmod>2026-05-15T12:48:29.707Z</lastmod>
   </url>
   <url>
     <loc>https://map.ox.ac.uk/healthscope/countries/Malawi.html</loc>
-    <lastmod>2026-05-15T11:42:55.696Z</lastmod>
+    <lastmod>2026-05-15T12:48:29.713Z</lastmod>
   </url>
   <url>
     <loc>https://map.ox.ac.uk/healthscope/countries/tanzania.html</loc>
-    <lastmod>2026-05-15T11:42:56.038Z</lastmod>
+    <lastmod>2026-05-15T12:48:29.711Z</lastmod>
   </url>
   <url>
     <loc>https://map.ox.ac.uk/healthscope/countries/Zambia.html</loc>
-    <lastmod>2026-05-15T11:42:55.967Z</lastmod>
+    <lastmod>2026-05-15T12:48:29.703Z</lastmod>
   </url>
   <url>
     <loc>https://map.ox.ac.uk/healthscope/data-sources.html</loc>
-    <lastmod>2026-05-15T11:42:53.615Z</lastmod>
+    <lastmod>2026-05-15T12:48:30.247Z</lastmod>
   </url>
   <url>
     <loc>https://map.ox.ac.uk/healthscope/downloads.html</loc>
-    <lastmod>2026-05-15T11:42:53.753Z</lastmod>
+    <lastmod>2026-05-15T12:48:33.144Z</lastmod>
   </url>
   <url>
     <loc>https://map.ox.ac.uk/healthscope/find-facility.html</loc>
-    <lastmod>2026-05-20T11:49:45.235Z</lastmod>
+    <lastmod>2026-05-21T09:51:00.488Z</lastmod>
   </url>
   <url>
     <loc>https://map.ox.ac.uk/healthscope/index.html</loc>
@@ -86,18 +82,14 @@
   </url>
   <url>
     <loc>https://map.ox.ac.uk/healthscope/methodology.html</loc>
-    <lastmod>2026-05-15T11:42:54.480Z</lastmod>
+    <lastmod>2026-05-15T12:48:33.634Z</lastmod>
   </url>
   <url>
     <loc>https://map.ox.ac.uk/healthscope/roadmap.html</loc>
-    <lastmod>2026-05-15T11:42:54.782Z</lastmod>
+    <lastmod>2026-05-15T12:48:33.874Z</lastmod>
   </url>
   <url>
     <loc>https://map.ox.ac.uk/healthscope/source-code.html</loc>
-    <lastmod>2026-05-15T11:42:54.990Z</lastmod>
-  </url>
-  <url>
-    <loc>https://map.ox.ac.uk/healthscope/team.html</loc>
-    <lastmod>2026-05-15T11:44:07.169Z</lastmod>
+    <lastmod>2026-05-15T12:48:34.001Z</lastmod>
   </url>
 </urlset>
