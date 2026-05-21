@@ -147,7 +147,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-
+<nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  
+</nav>
 <!-- ═══════════════ HERO ═══════════════ -->
 <section class="hero-section">
   <div class="hero-grid-bg"></div>
@@ -162,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="hero-content">
     <div class="hero-badge">
       <svg width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
-      Malaria Atlas Project — East Africa Node
+      Malaria Atlas Project — Dar es Salaam Node
     </div>
 
     <h1>
@@ -340,6 +344,179 @@ ul.task-list li input[type="checkbox"] {
 </section>
 
 
+<section class="page-banner">
+  <div style="max-width:1000px;margin:0 auto;">
+    <h1>About HealthScope</h1>
+    <p>Health facility intelligence — beyond static inventories</p>
+  </div>
+</section>
+<section id="mission" class="level2">
+<h2 class="anchored" data-anchor-id="mission">Mission</h2>
+<p><strong>HealthScope</strong> is an open-access health facility intelligence portal designed to move beyond static facility inventories toward dynamic, demand-driven health access analytics across malaria-endemic countries in Sub-Saharan Africa. Developed from data extracted directly from Ministries of Health, HealthScope transforms raw registry data into actionable intelligence.</p>
+<p>The portal reveals not just <em>where</em> health facilities exist, but whether populations can realistically access them and what services they offer.</p>
+</section>
+<section id="the-gap-we-fill" class="level2">
+<h2 class="anchored" data-anchor-id="the-gap-we-fill">The Gap We Fill</h2>
+<p>Current approaches to health facility mapping focus primarily on documenting facility locations without deeper analysis. HealthScope goes further by providing:</p>
+<ul>
+<li><strong>Population-demand modelling</strong> – reachability analysis beyond simple location pins</li>
+<li><strong>Service-level intelligence</strong> – mapping of what services exist where</li>
+<li><strong>General information at scale</strong> – population-weighted access metrics and facility distribution analysis</li>
+</ul>
+<p>HealthScope addresses these gaps within a lightweight, open-source, zero-server infrastructure.</p>
+</section>
+<section id="intelligence-layers" class="level2">
+<h2 class="anchored" data-anchor-id="intelligence-layers">Intelligence Layers</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin:2rem 0;">
+
+  <div class="card-modern" style="border-left:4px solid var(--map-red,#c9a227);">
+    <h3 style="color:var(--map-red,#c9a227);margin-top:0;" class="anchored">1. Facility Registry Lake</h3>
+    <p>Standardized facility data from MoH sources across 7 SSA countries. Multi-country harmonized schema; direct MoH sourcing.</p>
+  </div>
+
+  <div class="card-modern" style="border-left:4px solid #059669;">
+    <h3 style="color:#059669;margin-top:0;" class="anchored">2. Demand-Side Access</h3>
+    <p>Population catchment zones using road networks; travel-time isochrones showing not just location, but reachability.</p>
+  </div>
+
+  <div class="card-modern" style="border-left:4px solid #f59e0b;">
+    <h3 style="color:#f59e0b;margin-top:0;" class="anchored">3. Service Gap Intelligence</h3>
+    <p>Which services exist where. Heatmaps of malaria service deserts, lab coverage gaps, and emergency preparedness blind spots.</p>
+  </div>
+
+  <div class="card-modern" style="border-left:4px solid #06b6d4;">
+    <h3 style="color:#06b6d4;margin-top:0;" class="anchored">4. General Information</h3>
+    <p>Population-weighted access scores; rural/urban parity metrics by district. Exposing inequities masked by aggregate counts.</p>
+  </div>
+
+</div>
+</section>
+<section id="technical-architecture" class="level2">
+<h2 class="anchored" data-anchor-id="technical-architecture">Technical Architecture</h2>
+<p>HealthScope is built on a <strong>zero-server, open-source stack</strong> that is free to operate, reproducible, and scalable without infrastructure investment.</p>
+<div style="overflow-x:auto;margin:2rem 0;">
+  
+<table class="caption-top table" data-quarto-postprocess="true">
+<thead>
+<tr class="header" style="background:var(--map-navy,#3d3d3d);color:#fff;">
+<th data-quarto-table-cell-role="th" style="text-align: left; padding: .75rem 1rem;">Layer</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; padding: .75rem 1rem;">Technology</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; padding: .75rem 1rem;">Role</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd" style="border-bottom:1px solid var(--map-border);">
+<td style="padding: .6rem 1rem; font-weight: 600">Data Extraction</td>
+<td style="padding: .6rem 1rem">R (httr2, rvest)</td>
+<td style="padding: .6rem 1rem">Scrape / download from MoH registries</td>
+</tr>
+<tr class="even" style="border-bottom:1px solid var(--map-border);background:rgba(0,0,0,.01);">
+<td style="padding: .6rem 1rem; font-weight: 600">ETL Pipeline</td>
+<td style="padding: .6rem 1rem">R (tidyverse, sf, lubridate)</td>
+<td style="padding: .6rem 1rem">Standardize, clean, validate, flag quality</td>
+</tr>
+<tr class="odd" style="border-bottom:1px solid var(--map-border);">
+<td style="padding: .6rem 1rem; font-weight: 600">Storage</td>
+<td style="padding: .6rem 1rem">CSV + GeoParquet + DuckDB</td>
+<td style="padding: .6rem 1rem">Spatial data lake; fast in-process queries</td>
+</tr>
+<tr class="even" style="border-bottom:1px solid var(--map-border);background:rgba(0,0,0,.01);">
+<td style="padding: .6rem 1rem; font-weight: 600">Spatial Analysis</td>
+<td style="padding: .6rem 1rem">R (sf, osrm, WorldPop)</td>
+<td style="padding: .6rem 1rem">Catchment zones, access scoring</td>
+</tr>
+<tr class="odd" style="border-bottom:1px solid var(--map-border);">
+<td style="padding: .6rem 1rem; font-weight: 600">Portal Frontend</td>
+<td style="padding: .6rem 1rem">Quarto + Leaflet + Chart.js</td>
+<td style="padding: .6rem 1rem">Interactive maps, dashboards, reports</td>
+</tr>
+<tr class="even" style="border-bottom:1px solid var(--map-border);background:rgba(0,0,0,.01);">
+<td style="padding: .6rem 1rem; font-weight: 600">Hosting</td>
+<td style="padding: .6rem 1rem">GitHub Pages</td>
+<td style="padding: .6rem 1rem">Free static hosting; auto-deploy on push</td>
+</tr>
+<tr class="odd">
+<td style="padding: .6rem 1rem; font-weight: 600">Open Data</td>
+<td style="padding: .6rem 1rem">Zenodo / Hugging Face</td>
+<td style="padding: .6rem 1rem">Versioned, DOI-assigned releases</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</section>
+<section id="etl-pipeline-v2" class="level2">
+<h2 class="anchored" data-anchor-id="etl-pipeline-v2">ETL Pipeline (v2)</h2>
+<p>The HealthScope ETL pipeline processes raw MoH data through 7 validated steps:</p>
+<ol type="1">
+<li><strong><code>read_country_data()</code></strong> – reads CSV/XLSX with encoding handling</li>
+<li><strong><code>standardize_columns()</code></strong> – maps raw columns to shared 23-field schema</li>
+<li><strong><code>clean_coordinates()</code></strong> – coerces to numeric; flags missing/implausible GPS</li>
+<li><strong><code>clean_dates()</code></strong> – parses Stata-format and ISO 8601 dates</li>
+<li><strong><code>enforce_schema_types()</code></strong> – coerces all fields to correct types</li>
+<li><strong><code>flag_data_quality()</code></strong> – assigns high/medium/low/unknown per record</li>
+<li><strong><code>save_standardized_data()</code></strong> – writes CSV and per-country QA report</li>
+</ol>
+<section id="current-pipeline-status" class="level3">
+<h3 class="anchored" data-anchor-id="current-pipeline-status">Current Pipeline Status</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Country</th>
+<th>Facilities</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tanzania</td>
+<td>13,075</td>
+<td>MoH HFR Portal</td>
+</tr>
+<tr class="even">
+<td>Nigeria</td>
+<td>51,023</td>
+<td>NHMIS / DHIS2</td>
+</tr>
+<tr class="odd">
+<td>Kenya</td>
+<td>17,353</td>
+<td>KMHFR</td>
+</tr>
+<tr class="even">
+<td>Uganda</td>
+<td>8,512</td>
+<td>MoH DHIS2</td>
+</tr>
+<tr class="odd">
+<td>Zambia</td>
+<td>3,731</td>
+<td>MoH HRIS</td>
+</tr>
+<tr class="even">
+<td>Malawi</td>
+<td>1,929</td>
+<td>MoH CMED</td>
+</tr>
+<tr class="odd">
+<td>Botswana</td>
+<td>1,076</td>
+<td>MoH Registry</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td><strong>96,699</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="team" class="level2">
+<h2 class="anchored" data-anchor-id="team">Team</h2>
+<p>The portal is maintained by a team of data engineers, GIS specialists, epidemiologists, and researchers at the Malaria Atlas Project Dar es Salaam Node.</p>
+<p><a href="team.html"><strong>Visit the Team Page →</strong></a> | <a href="data-sources.html"><strong>View Data Sources →</strong></a></p>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -917,7 +1094,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© 2026 HealthScope — Malaria Atlas Project, East Africa Node</p>
+<p>© 2026 HealthScope — Malaria Atlas Project, Dar es Salaam Node</p>
 <p>Open health facility intelligence for Sub-Saharan Africa</p>
 </div>   
     <div class="nav-footer-center">

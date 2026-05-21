@@ -18,46 +18,40 @@ toc-depth: 2
 
 **HealthScope** is an open-access health facility intelligence portal designed to move beyond static facility inventories toward dynamic, demand-driven health access analytics across malaria-endemic countries in Sub-Saharan Africa. Developed from data extracted directly from Ministries of Health, HealthScope transforms raw registry data into actionable intelligence.
 
-The portal reveals not just *where* health facilities exist, but whether populations can realistically access them, what services they offer, and how this landscape has changed over time.
+The portal reveals not just *where* health facilities exist, but whether populations can realistically access them and what services they offer.
 
 ## The Gap We Fill
 
-Existing platforms such as the WHO AFRO Health Facility Portal and the Humanitarian Data Exchange (HDX) document facility locations but provide no:
+Current approaches to health facility mapping focus primarily on documenting facility locations without deeper analysis. HealthScope goes further by providing:
 
-- **Population-demand modelling** -- no reachability analysis
-- **Temporal facility tracking** -- no understanding of change over time
-- **Service-level intelligence** -- no mapping of what services exist where
-- **Equity analysis at scale** -- no population-weighted access metrics
+- **Population-demand modelling** -- reachability analysis beyond simple location pins
+- **Service-level intelligence** -- mapping of what services exist where
+- **General information at scale** -- population-weighted access metrics and facility distribution analysis
 
-HealthScope fills all four gaps simultaneously within a lightweight, open-source, zero-server infrastructure.
+HealthScope addresses these gaps within a lightweight, open-source, zero-server infrastructure.
 
-## Five Intelligence Layers
+## Intelligence Layers
 
 ```{=html}
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin:2rem 0;">
 
   <div class="card-modern" style="border-left:4px solid var(--map-red,#c9a227);">
     <h3 style="color:var(--map-red,#c9a227);margin-top:0;">1. Facility Registry Lake</h3>
-    <p>Standardized facility data from MoH sources across 6+ SSA countries. Multi-country harmonized schema; direct MoH sourcing.</p>
-  </div>
-
-  <div class="card-modern" style="border-left:4px solid #2563eb;">
-    <h3 style="color:#2563eb;margin-top:0;">2. Temporal Tracking</h3>
-    <p>Animated timeline of facility openings, service expansions, and closures. No existing open platform tracks facility change over time.</p>
+    <p>Standardized facility data from MoH sources across 7 SSA countries. Multi-country harmonized schema; direct MoH sourcing.</p>
   </div>
 
   <div class="card-modern" style="border-left:4px solid #059669;">
-    <h3 style="color:#059669;margin-top:0;">3. Demand-Side Access</h3>
-    <p>Population catchment zones using road networks; travel-time isochrones. WHO AFRO and HDX show location only &mdash; no reachability.</p>
+    <h3 style="color:#059669;margin-top:0;">2. Demand-Side Access</h3>
+    <p>Population catchment zones using road networks; travel-time isochrones showing not just location, but reachability.</p>
   </div>
 
   <div class="card-modern" style="border-left:4px solid #f59e0b;">
-    <h3 style="color:#f59e0b;margin-top:0;">4. Service Gap Intelligence</h3>
+    <h3 style="color:#f59e0b;margin-top:0;">3. Service Gap Intelligence</h3>
     <p>Which services exist where. Heatmaps of malaria service deserts, lab coverage gaps, and emergency preparedness blind spots.</p>
   </div>
 
   <div class="card-modern" style="border-left:4px solid #06b6d4;">
-    <h3 style="color:#06b6d4;margin-top:0;">5. Equity & Vulnerability Lens</h3>
+    <h3 style="color:#06b6d4;margin-top:0;">4. General Information</h3>
     <p>Population-weighted access scores; rural/urban parity metrics by district. Exposing inequities masked by aggregate counts.</p>
   </div>
 
@@ -107,26 +101,15 @@ The HealthScope ETL pipeline processes raw MoH data through 7 validated steps:
 |---------|-----------|--------|
 | Tanzania | 13,075 | MoH HFR Portal |
 | Nigeria | 51,023 | NHMIS / DHIS2 |
+| Kenya | 17,353 | KMHFR |
 | Uganda | 8,512 | MoH DHIS2 |
 | Zambia | 3,731 | MoH HRIS |
 | Malawi | 1,929 | MoH CMED |
 | Botswana | 1,076 | MoH Registry |
-| **Total** | **78,346** | |
-
-## Funding & Acknowledgements
-
-```{=html}
-<div class="card-dark" style="margin:2rem 0;padding:2rem;border-radius:var(--map-radius,12px);">
-  <p style="margin:0;font-size:1.05rem;">
-    <strong>This work is supported by the Bill &amp; Melinda Gates Foundation.</strong>
-    We gratefully acknowledge the Ministries of Health across East Africa for sharing national facility data,
-    and the broader open-data and open-source communities whose tools and standards make this work possible.
-  </p>
-</div>
-```
+| **Total** | **96,699** | |
 
 ## Team
 
-The portal is maintained by a team of data engineers, GIS specialists, epidemiologists, and researchers at the Malaria Atlas Project East Africa Node.
+The portal is maintained by a team of data engineers, GIS specialists, epidemiologists, and researchers at the Malaria Atlas Project Dar es Salaam Node.
 
-[**Visit the Team Page &rarr;**](team.html) | [**View Data Sources &rarr;**](data-sources.html) | [**Read Methodology &rarr;**](methodology.html)
+[**Visit the Team Page &rarr;**](team.html) | [**View Data Sources &rarr;**](data-sources.html)

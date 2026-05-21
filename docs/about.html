@@ -148,10 +148,9 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#mission" id="toc-mission" class="nav-link active" data-scroll-target="#mission">Mission</a></li>
   <li><a href="#the-gap-we-fill" id="toc-the-gap-we-fill" class="nav-link" data-scroll-target="#the-gap-we-fill">The Gap We Fill</a></li>
-  <li><a href="#five-intelligence-layers" id="toc-five-intelligence-layers" class="nav-link" data-scroll-target="#five-intelligence-layers">Five Intelligence Layers</a></li>
+  <li><a href="#intelligence-layers" id="toc-intelligence-layers" class="nav-link" data-scroll-target="#intelligence-layers">Intelligence Layers</a></li>
   <li><a href="#technical-architecture" id="toc-technical-architecture" class="nav-link" data-scroll-target="#technical-architecture">Technical Architecture</a></li>
   <li><a href="#etl-pipeline-v2" id="toc-etl-pipeline-v2" class="nav-link" data-scroll-target="#etl-pipeline-v2">ETL Pipeline (v2)</a></li>
-  <li><a href="#funding-acknowledgements" id="toc-funding-acknowledgements" class="nav-link" data-scroll-target="#funding-acknowledgements">Funding &amp; Acknowledgements</a></li>
   <li><a href="#team" id="toc-team" class="nav-link" data-scroll-target="#team">Team</a></li>
   </ul>
 </nav>
@@ -171,45 +170,39 @@ ul.task-list li input[type="checkbox"] {
 <section id="mission" class="level2">
 <h2 class="anchored" data-anchor-id="mission">Mission</h2>
 <p><strong>HealthScope</strong> is an open-access health facility intelligence portal designed to move beyond static facility inventories toward dynamic, demand-driven health access analytics across malaria-endemic countries in Sub-Saharan Africa. Developed from data extracted directly from Ministries of Health, HealthScope transforms raw registry data into actionable intelligence.</p>
-<p>The portal reveals not just <em>where</em> health facilities exist, but whether populations can realistically access them, what services they offer, and how this landscape has changed over time.</p>
+<p>The portal reveals not just <em>where</em> health facilities exist, but whether populations can realistically access them and what services they offer.</p>
 </section>
 <section id="the-gap-we-fill" class="level2">
 <h2 class="anchored" data-anchor-id="the-gap-we-fill">The Gap We Fill</h2>
-<p>Existing platforms such as the WHO AFRO Health Facility Portal and the Humanitarian Data Exchange (HDX) document facility locations but provide no:</p>
+<p>Current approaches to health facility mapping focus primarily on documenting facility locations without deeper analysis. HealthScope goes further by providing:</p>
 <ul>
-<li><strong>Population-demand modelling</strong> – no reachability analysis</li>
-<li><strong>Temporal facility tracking</strong> – no understanding of change over time</li>
-<li><strong>Service-level intelligence</strong> – no mapping of what services exist where</li>
-<li><strong>Equity analysis at scale</strong> – no population-weighted access metrics</li>
+<li><strong>Population-demand modelling</strong> – reachability analysis beyond simple location pins</li>
+<li><strong>Service-level intelligence</strong> – mapping of what services exist where</li>
+<li><strong>General information at scale</strong> – population-weighted access metrics and facility distribution analysis</li>
 </ul>
-<p>HealthScope fills all four gaps simultaneously within a lightweight, open-source, zero-server infrastructure.</p>
+<p>HealthScope addresses these gaps within a lightweight, open-source, zero-server infrastructure.</p>
 </section>
-<section id="five-intelligence-layers" class="level2">
-<h2 class="anchored" data-anchor-id="five-intelligence-layers">Five Intelligence Layers</h2>
+<section id="intelligence-layers" class="level2">
+<h2 class="anchored" data-anchor-id="intelligence-layers">Intelligence Layers</h2>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin:2rem 0;">
 
   <div class="card-modern" style="border-left:4px solid var(--map-red,#c9a227);">
     <h3 style="color:var(--map-red,#c9a227);margin-top:0;" class="anchored">1. Facility Registry Lake</h3>
-    <p>Standardized facility data from MoH sources across 6+ SSA countries. Multi-country harmonized schema; direct MoH sourcing.</p>
-  </div>
-
-  <div class="card-modern" style="border-left:4px solid #2563eb;">
-    <h3 style="color:#2563eb;margin-top:0;" class="anchored">2. Temporal Tracking</h3>
-    <p>Animated timeline of facility openings, service expansions, and closures. No existing open platform tracks facility change over time.</p>
+    <p>Standardized facility data from MoH sources across 7 SSA countries. Multi-country harmonized schema; direct MoH sourcing.</p>
   </div>
 
   <div class="card-modern" style="border-left:4px solid #059669;">
-    <h3 style="color:#059669;margin-top:0;" class="anchored">3. Demand-Side Access</h3>
-    <p>Population catchment zones using road networks; travel-time isochrones. WHO AFRO and HDX show location only — no reachability.</p>
+    <h3 style="color:#059669;margin-top:0;" class="anchored">2. Demand-Side Access</h3>
+    <p>Population catchment zones using road networks; travel-time isochrones showing not just location, but reachability.</p>
   </div>
 
   <div class="card-modern" style="border-left:4px solid #f59e0b;">
-    <h3 style="color:#f59e0b;margin-top:0;" class="anchored">4. Service Gap Intelligence</h3>
+    <h3 style="color:#f59e0b;margin-top:0;" class="anchored">3. Service Gap Intelligence</h3>
     <p>Which services exist where. Heatmaps of malaria service deserts, lab coverage gaps, and emergency preparedness blind spots.</p>
   </div>
 
   <div class="card-modern" style="border-left:4px solid #06b6d4;">
-    <h3 style="color:#06b6d4;margin-top:0;" class="anchored">5. Equity &amp; Vulnerability Lens</h3>
+    <h3 style="color:#06b6d4;margin-top:0;" class="anchored">4. General Information</h3>
     <p>Population-weighted access scores; rural/urban parity metrics by district. Exposing inequities masked by aggregate counts.</p>
   </div>
 
@@ -303,48 +296,43 @@ ul.task-list li input[type="checkbox"] {
 <td>NHMIS / DHIS2</td>
 </tr>
 <tr class="odd">
+<td>Kenya</td>
+<td>17,353</td>
+<td>KMHFR</td>
+</tr>
+<tr class="even">
 <td>Uganda</td>
 <td>8,512</td>
 <td>MoH DHIS2</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Zambia</td>
 <td>3,731</td>
 <td>MoH HRIS</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Malawi</td>
 <td>1,929</td>
 <td>MoH CMED</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Botswana</td>
 <td>1,076</td>
 <td>MoH Registry</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>Total</strong></td>
-<td><strong>78,346</strong></td>
+<td><strong>96,699</strong></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 </section>
 </section>
-<section id="funding-acknowledgements" class="level2">
-<h2 class="anchored" data-anchor-id="funding-acknowledgements">Funding &amp; Acknowledgements</h2>
-<div class="card-dark" style="margin:2rem 0;padding:2rem;border-radius:var(--map-radius,12px);">
-  <p style="margin:0;font-size:1.05rem;">
-    <strong>This work is supported by the Bill &amp; Melinda Gates Foundation.</strong>
-    We gratefully acknowledge the Ministries of Health across East Africa for sharing national facility data,
-    and the broader open-data and open-source communities whose tools and standards make this work possible.
-  </p>
-</div>
-</section>
 <section id="team" class="level2">
 <h2 class="anchored" data-anchor-id="team">Team</h2>
-<p>The portal is maintained by a team of data engineers, GIS specialists, epidemiologists, and researchers at the Malaria Atlas Project East Africa Node.</p>
-<p><a href="team.html"><strong>Visit the Team Page →</strong></a> | <a href="data-sources.html"><strong>View Data Sources →</strong></a> | <a href="methodology.html"><strong>Read Methodology →</strong></a></p>
+<p>The portal is maintained by a team of data engineers, GIS specialists, epidemiologists, and researchers at the Malaria Atlas Project Dar es Salaam Node.</p>
+<p><a href="team.html"><strong>Visit the Team Page →</strong></a> | <a href="data-sources.html"><strong>View Data Sources →</strong></a></p>
 
 
 </section>
@@ -925,7 +913,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© 2026 HealthScope — Malaria Atlas Project, East Africa Node</p>
+<p>© 2026 HealthScope — Malaria Atlas Project, Dar es Salaam Node</p>
 <p>Open health facility intelligence for Sub-Saharan Africa</p>
 </div>   
     <div class="nav-footer-center">
