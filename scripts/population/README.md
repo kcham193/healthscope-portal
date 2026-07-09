@@ -25,7 +25,7 @@ One `data/population/processed/<country>_catchments.csv` per country:
 R 4.2+ with these packages:
 
 ```r
-install.packages(c("sf", "terra", "exactextractr",
+install.packages(c("sf", "terra", "exactextractr", "osmextract",
                    "readr", "dplyr", "httr", "purrr"))
 ```
 
@@ -47,6 +47,10 @@ Rscript scripts/population/01_catchment_extract.R
 # 3. Aggregate WorldPop onto a hexagonal grid for the map overlay
 #    (writes 8 *_hex_pop.geojson files)
 Rscript scripts/population/02_hex_overlay.R
+
+# 4. Classify each facility by distance to the nearest OSM road
+#    (writes 8 *_reachability.csv files)
+Rscript scripts/population/03_road_reachability.R
 ```
 
 Runtime, rough:
@@ -54,12 +58,17 @@ Runtime, rough:
 - Step 1: 5–15 min depending on your network (WorldPop is ~35 MB total).
 - Step 2: 30 s (Botswana / Malawi) to 4 min (Nigeria / Ethiopia) per country.
 - Step 3: ~30 s per country; total ~5 min for all 8.
+- Step 4: First run downloads ~1.5-2 GB of GeoFabrik OSM extracts (Nigeria
+  ~350 MB, Ethiopia ~450 MB) to `data/population/raw/geofabrik/`. Wall time
+  20-40 min on first run, ~5-10 min on subsequent runs (cached). Extracts
+  are gitignored.
 
-To rerun only one country, pass the country slug to steps 2 or 3:
+To rerun only one country, pass the country slug to steps 2, 3, or 4:
 
 ```powershell
 Rscript scripts/population/01_catchment_extract.R tanzania
 Rscript scripts/population/02_hex_overlay.R tanzania
+Rscript scripts/population/03_road_reachability.R tanzania
 ```
 
 ## After running

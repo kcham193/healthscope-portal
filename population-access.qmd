@@ -116,11 +116,11 @@ toc: false
 
 <div class="pa-wrap">
 
-  <!-- Sub-objective navigation. #1 and #2 share the map below (overlay + markers). -->
+  <!-- Sub-objective navigation. #1, #2 and #3 share the map below. -->
   <div class="pa-tabs" role="tablist">
     <span class="pa-tab active" aria-current="page">1. Population-Facility Overlap</span>
     <span class="pa-tab active" aria-current="page">2. Catchment Population</span>
-    <span class="pa-tab pending" title="Coming next">3. Physical Reachability <span class="pa-tag">soon</span></span>
+    <span class="pa-tab active" aria-current="page">3. Physical Reachability</span>
     <span class="pa-tab pending" title="Coming next">4. Underserved Zones <span class="pa-tag">soon</span></span>
   </div>
 
@@ -144,6 +144,13 @@ toc: false
       <select id="pa-radius">
         <option value="pop_5km" selected>5 km</option>
         <option value="pop_10km">10 km</option>
+      </select>
+    </div>
+    <div class="ctrl">
+      <label for="pa-colour-by">Colour markers by</label>
+      <select id="pa-colour-by">
+        <option value="catchment" selected>Catchment population</option>
+        <option value="reachability">Road reachability</option>
       </select>
     </div>
     <div class="ctrl">
@@ -217,6 +224,31 @@ toc: false
     if (v < 100000) return 9;
     return 12;
   }
+
+  // Road-reachability palette (sub-objective 3). Discrete 4-class scale
+  // matching scripts/population/03_road_reachability.R thresholds.
+  var REACH_CLASSES = {
+    on_road:   { color:'#16a34a', label:'On road (<500 m)' },
+    near_road: { color:'#eab308', label:'Near road (0.5–2 km)' },
+    off_road:  { color:'#f97316', label:'Off road (2–10 km)' },
+    isolated:  { color:'#dc2626', label:'Isolated (10 km+)' }
+  };
+  var REACH_ORDER = ['on_road', 'near_road', 'off_road', 'isolated'];
+  function reachColor(cls){
+    return (REACH_CLASSES[cls] && REACH_CLASSES[cls].color) || '#9ca3af';
+  }
+  function reachRadius(d){
+    // Uniform-ish, with a small nudge so isolated facilities stand out.
+    if (d == null || !isFinite(d)) return 5;
+    if (d < 500)   return 5;
+    if (d < 2000)  return 6;
+    if (d < 10000) return 7;
+    return 9;
+  }
+  function currentMode(){
+    var el = document.getElementById('pa-colour-by');
+    return el ? el.value : 'catchment';
+  }
   function fmt(n){
     if (n == null || !isFinite(n)) return '—';
     if (n >= 1e6) return (n/1e6).toFixed(1) + ' M';
@@ -260,10 +292,21 @@ toc: false
 
   function renderLegend(){
     var overlayOn = document.getElementById('pa-overlay').value === 'on';
-    var html = '<span style="font-weight:600;color:#0a1628;">Catchment size:</span> ';
-    html += BURDEN_STEPS.map(function(s){
-      return '<span><span class="swatch" style="background:' + s.color + '"></span>' + s.label + '</span>';
-    }).join('');
+    var mode      = currentMode();
+
+    var html = '';
+    if (mode === 'reachability') {
+      html += '<span style="font-weight:600;color:#0a1628;">Reachability:</span> ';
+      html += REACH_ORDER.map(function(k){
+        var c = REACH_CLASSES[k];
+        return '<span><span class="swatch" style="background:' + c.color + '"></span>' + c.label + '</span>';
+      }).join('');
+    } else {
+      html += '<span style="font-weight:600;color:#0a1628;">Catchment size:</span> ';
+      html += BURDEN_STEPS.map(function(s){
+        return '<span><span class="swatch" style="background:' + s.color + '"></span>' + s.label + '</span>';
+      }).join('');
+    }
     if (overlayOn) {
       html += '<span style="margin:0 .5rem;color:#cbd5e1;">|</span>';
       html += '<span style="font-weight:600;color:#0a1628;">People per hex (~65 km²):</span> ';
@@ -278,37 +321,77 @@ toc: false
   function renderSummary(rows, col){
     var vals = rows.map(function(r){ return +r[col]; }).filter(isFinite);
     vals.sort(function(a,b){ return a-b; });
-    var total = vals.reduce(function(a,b){ return a + b; }, 0);
     var median = vals.length ? vals[Math.floor(vals.length/2)] : 0;
     var max    = vals.length ? vals[vals.length-1] : 0;
     var min    = vals.length ? vals[0] : 0;
-    // "Undserserved" quick metric: facilities serving < 500 people.
+    // "Underserved" quick metric: facilities serving < 500 people.
     var thin   = vals.filter(function(v){ return v < 500; }).length;
-    document.getElementById('pa-summary').innerHTML =
+
+    // Reachability totals — only computed if any row was joined to
+    // reachability data (i.e., 03_road_reachability.R has been run).
+    var isolatedCount = rows.filter(function(r){ return r.road_class === 'isolated'; }).length;
+    var hasReach      = rows.some(function(r){ return r.road_class; });
+
+    var html =
       '<div class="pa-metric"><div class="val">'+ rows.length.toLocaleString() +'</div><div class="lbl">Facilities</div></div>' +
       '<div class="pa-metric"><div class="val">'+ fmt(median) +'</div><div class="lbl">Median catchment</div><div class="sub">' + fmtFull(median) + ' people</div></div>' +
       '<div class="pa-metric"><div class="val">'+ fmt(max)    +'</div><div class="lbl">Most burdened</div><div class="sub">people at 1 facility</div></div>' +
       '<div class="pa-metric"><div class="val">'+ fmt(min)    +'</div><div class="lbl">Least utilised</div><div class="sub">people at 1 facility</div></div>' +
       '<div class="pa-metric"><div class="val">'+ thin.toLocaleString() +'</div><div class="lbl">Under 500 people</div><div class="sub">very low catchment</div></div>';
+    if (hasReach) {
+      var pct = rows.length ? Math.round(100 * isolatedCount / rows.length) : 0;
+      html +=
+        '<div class="pa-metric" style="border-top:3px solid ' + reachColor('isolated') + ';">' +
+          '<div class="val">'+ isolatedCount.toLocaleString() +'</div>' +
+          '<div class="lbl">Isolated (10 km+)</div>' +
+          '<div class="sub">' + pct + '% of facilities</div>' +
+        '</div>';
+    }
+    document.getElementById('pa-summary').innerHTML = html;
   }
 
   function renderMap(rows, col, country){
     facilityLayer.clearLayers();
     if (!rows.length) { map.fitBounds(country.bounds); return; }
+    var mode = currentMode();
     rows.forEach(function(r){
       var lat = +r.latitude, lon = +r.longitude, v = +r[col];
       if (!isFinite(lat) || !isFinite(lon)) return;
+
+      var fill, radius;
+      if (mode === 'reachability' && r.road_class) {
+        fill   = reachColor(r.road_class);
+        radius = reachRadius(+r.road_dist_m);
+      } else {
+        fill   = burdenColor(v);
+        radius = burdenRadius(v);
+      }
+
+      // Reachability popup line (shown whenever reach data is joined,
+      // regardless of colour mode — helps context-switch mentally).
+      var reachHtml = '';
+      if (r.road_class) {
+        var reachLabel = (REACH_CLASSES[r.road_class] || {}).label || r.road_class;
+        var dText = (r.road_dist_m == null || !isFinite(+r.road_dist_m)) ? '—' :
+          (+r.road_dist_m >= 1000 ? (+r.road_dist_m/1000).toFixed(1) + ' km' : Math.round(+r.road_dist_m) + ' m');
+        reachHtml =
+          '<span style="color:#666;">Nearest road: </span>' +
+          '<strong style="color:' + reachColor(r.road_class) + ';">' + dText + '</strong>' +
+          ' <span style="color:#888;font-size:0.82rem;">(' + reachLabel + ')</span><br/>';
+      }
+
       var m = L.circleMarker([lat, lon], {
-        radius: burdenRadius(v),
-        color: burdenColor(v), weight: 1,
-        fillColor: burdenColor(v), fillOpacity: 0.75
+        radius: radius,
+        color: fill, weight: 1,
+        fillColor: fill, fillOpacity: 0.75
       }).bindPopup(
-        '<div style="min-width:200px;">' +
+        '<div style="min-width:220px;">' +
           '<strong>' + (r.facility_name || '—') + '</strong><br/>' +
           '<span style="color:#666;">Type: </span>' + (r.facility_type || '—') + '<br/>' +
           '<span style="color:#666;">Region: </span>' + (r.admin1 || r.admin2 || '—') + '<br/>' +
           '<hr style="margin:0.4rem 0;border-color:#eee;"/>' +
-          '<strong style="color:#c9a227;">' + fmtFull(v) + ' people</strong> within ' + (col === 'pop_10km' ? '10 km' : '5 km') +
+          '<strong style="color:#c9a227;">' + fmtFull(v) + ' people</strong> within ' + (col === 'pop_10km' ? '10 km' : '5 km') + '<br/>' +
+          reachHtml +
         '</div>'
       );
       facilityLayer.addLayer(m);
@@ -414,35 +497,67 @@ toc: false
     if (cache[slug]) { render(cache[slug], col, country); return; }
 
     setStatus('Loading catchment data for <strong>' + country.label + '</strong>…');
-    var url = CATCHMENT_BASE + '/' + slug + '_catchments.csv';
-    Papa.parse(url, {
-      download: true, header: true, skipEmptyLines: true,
-      complete: function(res){
-        var rows = (res.data || []).filter(function(r){
-          return r.facility_code && r.latitude && r.longitude &&
-                 (r.pop_5km != null || r.pop_10km != null);
-        });
-        if (rows.length === 0) {
-          setStatus(
-            '<strong>Catchment data not yet available for ' + country.label + '.</strong> ' +
-            'This layer needs a one-off pipeline run &mdash; see <code>scripts/population/README.md</code>. ' +
-            'The map + charts will populate once <code>data/population/processed/' + slug + '_catchments.csv</code> is committed.',
-            'pending'
-          );
-          facilityLayer.clearLayers();
-          document.getElementById('pa-summary').innerHTML = '';
-          document.getElementById('pa-top').innerHTML = '';
-          document.getElementById('pa-bottom').innerHTML = '';
-          if (histChart) histChart.destroy();
-          map.fitBounds(country.bounds);
-          return;
+    var catchmentUrl   = CATCHMENT_BASE + '/' + slug + '_catchments.csv';
+    var reachUrl       = CATCHMENT_BASE + '/' + slug + '_reachability.csv';
+
+    // Load catchment (required) + reachability (optional) in parallel;
+    // join on facility_code once both settle.
+    Promise.all([
+      papaFetch(catchmentUrl, /*required*/ true),
+      papaFetch(reachUrl,     /*required*/ false)
+    ]).then(function(results){
+      var catRows   = results[0] || [];
+      var reachRows = results[1] || [];
+      var reachIx = {};
+      reachRows.forEach(function(r){ if (r.facility_code) reachIx[r.facility_code] = r; });
+      catRows.forEach(function(r){
+        var rr = reachIx[r.facility_code];
+        if (rr) {
+          r.road_dist_m = rr.road_dist_m;
+          r.road_class  = rr.road_class;
         }
-        cache[slug] = rows;
-        render(rows, col, country);
-      },
-      error: function(err){
-        setStatus('Could not load ' + url + '. ' + (err && err.message ? err.message : ''), 'error');
+      });
+
+      var rows = catRows.filter(function(r){
+        return r.facility_code && r.latitude && r.longitude &&
+               (r.pop_5km != null || r.pop_10km != null);
+      });
+      if (rows.length === 0) {
+        setStatus(
+          '<strong>Catchment data not yet available for ' + country.label + '.</strong> ' +
+          'This layer needs a one-off pipeline run &mdash; see <code>scripts/population/README.md</code>. ' +
+          'The map + charts will populate once <code>data/population/processed/' + slug + '_catchments.csv</code> is committed.',
+          'pending'
+        );
+        facilityLayer.clearLayers();
+        document.getElementById('pa-summary').innerHTML = '';
+        document.getElementById('pa-top').innerHTML = '';
+        document.getElementById('pa-bottom').innerHTML = '';
+        if (histChart) histChart.destroy();
+        map.fitBounds(country.bounds);
+        return;
       }
+      cache[slug] = rows;
+      render(rows, col, country);
+    }).catch(function(err){
+      setStatus('Could not load catchment data: ' + (err && err.message ? err.message : err), 'error');
+    });
+  }
+
+  // Papa.parse wrapper that returns a Promise resolving to the row array.
+  // If `required` is false, missing/errored files resolve to [] instead of
+  // rejecting — used for the reachability CSV which may not exist yet for
+  // a country that hasn't been through 03_road_reachability.R.
+  function papaFetch(url, required){
+    return new Promise(function(resolve, reject){
+      Papa.parse(url, {
+        download: true, header: true, skipEmptyLines: true,
+        complete: function(res){ resolve(res.data || []); },
+        error: function(err){
+          if (required) reject(err);
+          else          resolve([]);
+        }
+      });
     });
   }
 
@@ -469,6 +584,15 @@ toc: false
     var slug = document.getElementById('pa-country').value;
     if (this.value === 'off') { clearOverlay(); }
     else                       { loadOverlay(slug); }
+    renderLegend();
+  });
+  document.getElementById('pa-colour-by').addEventListener('change', function(){
+    // Recolour the existing markers (data already in cache); just re-render.
+    var slug = document.getElementById('pa-country').value;
+    var rows = cache[slug];
+    if (rows) {
+      renderMap(rows, document.getElementById('pa-radius').value, COUNTRIES[slug]);
+    }
     renderLegend();
   });
 
