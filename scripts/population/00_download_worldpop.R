@@ -30,12 +30,14 @@ dir.create(RAW_DIR, recursive = TRUE, showWarnings = FALSE)
 worldpop_url <- function(iso3_lower) {
   iso3_upper <- toupper(iso3_lower)
   sprintf(
-    "https://data.worldpop.org/GIS/Population/Global_2000_2020/%d/%s/%s_ppp_%d_1km_Aggregated.tif",
+    "https://data.worldpop.org/GIS/Population/Global_2000_2020_1km/%d/%s/%s_ppp_%d_1km_Aggregated.tif",
     WORLDPOP_YEAR, iso3_upper, iso3_lower, WORLDPOP_YEAR
   )
 }
 
-download_one <- function(slug, iso3_lower) {
+# NOTE: iwalk(named_list, .f) calls .f(value, name), so `iso3_lower` (the
+# value in COUNTRIES) is the FIRST arg and `slug` (the name) is the SECOND.
+download_one <- function(iso3_lower, slug) {
   dest <- file.path(RAW_DIR, sprintf("%s_ppp_%d_1km.tif", iso3_lower, WORLDPOP_YEAR))
   if (file.exists(dest) && file.info(dest)$size > 1e6) {
     message(sprintf("  %-9s [skip]  already have %s (%.1f MB)",
