@@ -416,9 +416,9 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="pa-wrap">
 
-  <!-- Sub-objective navigation. Only #2 (Catchment) is live in Milestone A. -->
+  <!-- Sub-objective navigation. #1 and #2 share the map below (overlay + markers). -->
   <div class="pa-tabs" role="tablist">
-    <span class="pa-tab pending" title="Coming next">1. Population-Facility Overlap <span class="pa-tag">soon</span></span>
+    <span class="pa-tab active" aria-current="page">1. Population-Facility Overlap</span>
     <span class="pa-tab active" aria-current="page">2. Catchment Population</span>
     <span class="pa-tab pending" title="Coming next">3. Physical Reachability <span class="pa-tag">soon</span></span>
     <span class="pa-tab pending" title="Coming next">4. Underserved Zones <span class="pa-tag">soon</span></span>
@@ -444,6 +444,13 @@ ul.task-list li input[type="checkbox"] {
       <select id="pa-radius">
         <option value="pop_5km" selected="">5 km</option>
         <option value="pop_10km">10 km</option>
+      </select>
+    </div>
+    <div class="ctrl">
+      <label for="pa-overlay">Population overlay</label>
+      <select id="pa-overlay">
+        <option value="on" selected="">Show hex layer</option>
+        <option value="off">Hide (markers only)</option>
       </select>
     </div>
   </div>
@@ -546,8 +553,28 @@ ul.task-list li input[type="checkbox"] {
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
     attribution:'&copy; OpenStreetMap &copy; CARTO', maxZoom: 12
   }).addTo(map);
+  // Hex population overlay sits UNDER the facility markers so click still
+  // targets the facilities. Kept in its own layer for easy show/hide.
+  var hexLayer = null;
+  var hexCache = {};
   var facilityLayer = L.layerGroup().addTo(map);
   var histChart;
+
+  // Population-per-hex choropleth. Thresholds are per-hex totals, so a
+  // "very dense" hex is one 10 km cell (~65 km²) containing 150 k+ people.
+  var HEX_STEPS = [
+    { max:    500, color:'#f7fcf5', label:'< 0.5 k' },
+    { max:   2000, color:'#c7e9c0', label:'0.5–2 k' },
+    { max:   5000, color:'#a1d99b', label:'2–5 k' },
+    { max:  15000, color:'#fed976', label:'5–15 k' },
+    { max:  50000, color:'#fd8d3c', label:'15–50 k' },
+    { max: 150000, color:'#e31a1c', label:'50–150 k' },
+    { max: Infinity, color:'#800026', label:'150 k+' }
+  ];
+  function hexColor(v){
+    for (var i = 0; i < HEX_STEPS.length; i++) if (v < HEX_STEPS[i].max) return HEX_STEPS[i].color;
+    return HEX_STEPS[HEX_STEPS.length-1].color;
+  }
 
   function setStatus(msg, kind){
     var el = document.getElementById('pa-status');
@@ -556,10 +583,18 @@ ul.task-list li input[type="checkbox"] {
   }
 
   function renderLegend(){
+    var overlayOn = document.getElementById('pa-overlay').value === 'on';
     var html = '<span style="font-weight:600;color:#0a1628;">Catchment size:</span> ';
     html += BURDEN_STEPS.map(function(s){
       return '<span><span class="swatch" style="background:' + s.color + '"></span>' + s.label + '</span>';
     }).join('');
+    if (overlayOn) {
+      html += '<span style="margin:0 .5rem;color:#cbd5e1;">|</span>';
+      html += '<span style="font-weight:600;color:#0a1628;">People per hex (~65 km²):</span> ';
+      html += HEX_STEPS.map(function(s){
+        return '<span><span class="swatch" style="background:' + s.color + ';border-radius:2px;"></span>' + s.label + '</span>';
+      }).join('');
+    }
     document.getElementById('pa-legend').innerHTML = html;
   }
   renderLegend();
@@ -654,10 +689,51 @@ ul.task-list li input[type="checkbox"] {
 
   var cache = {};
 
+  // ---- Population overlay (sub-obj 1) ---------------------------------
+  function clearOverlay(){
+    if (hexLayer) { map.removeLayer(hexLayer); hexLayer = null; }
+  }
+
+  function drawOverlay(gj){
+    clearOverlay();
+    hexLayer = L.geoJSON(gj, {
+      style: function(f){
+        return { fillColor: hexColor(+f.properties.pop), fillOpacity: 0.55,
+                 weight: 0, color: 'transparent' };
+      },
+      // Non-interactive so clicks pass through to facility markers.
+      interactive: false
+    }).addTo(map);
+    if (hexLayer.bringToBack) hexLayer.bringToBack();
+  }
+
+  function loadOverlay(slug){
+    var overlayOn = document.getElementById('pa-overlay').value === 'on';
+    if (!overlayOn) { clearOverlay(); return; }
+    if (hexCache[slug]) { drawOverlay(hexCache[slug]); return; }
+    var url = 'data/population/processed/' + slug + '_hex_pop.geojson';
+    fetch(url).then(function(r){
+      if (!r.ok) throw new Error('overlay ' + r.status);
+      return r.json();
+    }).then(function(gj){
+      hexCache[slug] = gj;
+      // Only draw if the user hasn't switched country/toggle in the meantime.
+      if (document.getElementById('pa-country').value === slug &&
+          document.getElementById('pa-overlay').value === 'on') drawOverlay(gj);
+    }).catch(function(err){
+      console.warn('Population overlay not available for ' + slug + ':', err);
+      // Overlay data isn't ready for this country yet — silently no-op;
+      // the map still shows facility markers.
+    });
+  }
+
   function loadCountry(slug){
     var country = COUNTRIES[slug];
     if (!country) return;
     var col = document.getElementById('pa-radius').value;
+
+    // Overlay loads independently — different file, non-blocking.
+    loadOverlay(slug);
 
     if (cache[slug]) { render(cache[slug], col, country); return; }
 
@@ -711,6 +787,13 @@ ul.task-list li input[type="checkbox"] {
   });
   document.getElementById('pa-radius').addEventListener('change', function(){
     loadCountry(document.getElementById('pa-country').value);
+  });
+  document.getElementById('pa-overlay').addEventListener('change', function(){
+    // Toggle overlay without re-fetching CSV.
+    var slug = document.getElementById('pa-country').value;
+    if (this.value === 'off') { clearOverlay(); }
+    else                       { loadOverlay(slug); }
+    renderLegend();
   });
 
   loadCountry('tanzania');

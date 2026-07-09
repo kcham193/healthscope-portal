@@ -5,6 +5,7 @@ project:
     - images/
     - etl/data/processed/country_standardized/*.csv
     - data/population/processed/*.csv
+    - data/population/processed/*.geojson
     - ors-key.js
 
 website:

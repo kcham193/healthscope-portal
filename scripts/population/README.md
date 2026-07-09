@@ -41,20 +41,25 @@ From the repository root, in this order:
 # 1. Download WorldPop 2020 1 km rasters for all 8 countries
 Rscript scripts/population/00_download_worldpop.R
 
-# 2. Compute per-facility catchments (writes 8 CSVs into data/population/processed/)
+# 2. Compute per-facility catchments (writes 8 *_catchments.csv files)
 Rscript scripts/population/01_catchment_extract.R
+
+# 3. Aggregate WorldPop onto a hexagonal grid for the map overlay
+#    (writes 8 *_hex_pop.geojson files)
+Rscript scripts/population/02_hex_overlay.R
 ```
 
 Runtime, rough:
 
-- Step 1: 5–15 min depending on your network (WorldPop is ~350 MB total).
-- Step 2: 2–5 min per country on a laptop. Nigeria and Ethiopia are the slow
-  ones because they have the most facilities.
+- Step 1: 5–15 min depending on your network (WorldPop is ~35 MB total).
+- Step 2: 30 s (Botswana / Malawi) to 4 min (Nigeria / Ethiopia) per country.
+- Step 3: ~30 s per country; total ~5 min for all 8.
 
-To rerun only one country, pass the country slug:
+To rerun only one country, pass the country slug to steps 2 or 3:
 
 ```powershell
 Rscript scripts/population/01_catchment_extract.R tanzania
+Rscript scripts/population/02_hex_overlay.R tanzania
 ```
 
 ## After running
