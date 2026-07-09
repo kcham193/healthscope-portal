@@ -4,6 +4,7 @@ project:
   resources:
     - images/
     - etl/data/processed/country_standardized/*.csv
+    - data/population/processed/*.csv
     - ors-key.js
 
 website:
