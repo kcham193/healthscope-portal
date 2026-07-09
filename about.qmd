@@ -66,23 +66,9 @@ The HealthScope ETL pipeline ingests each Ministry of Health registry through th
 2. **Transform** &mdash; standardise columns to a shared schema, validate coordinates against the country's bounding box, mint a stable global facility UID, and map each raw service name to the canonical 7-domain hierarchy via per-country crosswalks.
 3. **Load** &mdash; publish versioned per-country CSVs (`{country}_standardized.csv` for facilities, `{country}_services_standardized.csv` for services) that the portal consumes directly via a git submodule.
 
-### Current Pipeline Status
-
-| Country | Facilities | Source |
-|---------|-----------|--------|
-| Tanzania | 13,075 | MoH HFR Portal |
-| Nigeria | 51,023 | NHMIS / DHIS2 |
-| Kenya | 17,353 | KMHFR |
-| Uganda | 8,512 | MoH DHIS2 |
-| Zambia | 3,731 | MoH HRIS |
-| Malawi | 1,929 | MoH CMED |
-| Botswana | 1,076 | MoH MFL |
-| Ethiopia | 40,035 | MoH MFR v2 |
-| **Total** | **136,734** | |
-
 ## Data Sources
 
-HealthScope ingests **only authoritative, official sources** — Ministry of Health master facility registries and openly-licensed compilations of the same upstream data. Each country's row in the pipeline status above links back to its primary registry. For the full source catalogue with license and citation details, visit the dedicated page.
+HealthScope ingests **only authoritative, official sources** — Ministry of Health master facility registries and openly-licensed compilations of the same upstream data. For the full per-country source catalogue with license and citation details, visit the dedicated page.
 
 [**View Data Sources &rarr;**](data-sources.html)
 

@@ -299,86 +299,211 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 style="font-size: 2.5rem; margin: 0 0 0.5rem 0;" class="title display-7">Data Sources</h1></header>
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7">Data Sources</h1></header>
 
 
 
 
 
-<!-- PAGE HERO -->
-<section class="page-banner" style="color: white; padding: 3rem 2rem;">
+<style>
+  .ds-hero { padding: 3rem 2rem; color: white; }
+  .ds-hero h1 { font-size: 2.5rem; margin: 0 0 0.5rem 0; }
+  .ds-hero p  { font-size: 1.1rem; opacity: 0.9; margin: 0; }
+
+  .ds-wrap { max-width: 1200px; margin: 3rem auto; padding: 0 2rem; }
+  .ds-wrap h2 { text-align: center; margin-bottom: 0.5rem; }
+  .ds-lede    { text-align: center; color: #666; margin-bottom: 2rem; }
+
+  .ds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .ds-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--map-border, #e2e8f0);
+    border-top: 4px solid var(--map-red, #c9a227);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    transition: box-shadow 0.15s, transform 0.15s;
+  }
+  .ds-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); transform: translateY(-2px); }
+  .ds-card h3 { margin: 0 0 0.5rem; color: var(--map-red, #c9a227); font-family: 'Space Grotesk', sans-serif; }
+  .ds-count { display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 1rem; }
+  .ds-count .num { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--map-navy, #3d3d3d); }
+  .ds-count .lbl { color: #666; font-size: 0.85rem; }
+  .ds-source { color: #333; margin: 0 0 1rem; font-size: 0.92rem; line-height: 1.5; flex: 1; }
+  .ds-source strong { color: var(--map-navy, #3d3d3d); }
+  .ds-badges { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .ds-badge {
+    background: rgba(201, 162, 39, 0.1);
+    color: var(--map-red, #c9a227);
+    padding: 0.25rem 0.55rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ds-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .ds-links a {
+    flex: 1;
+    min-width: 100px;
+    padding: 0.55rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .ds-links .primary   { background: var(--map-red, #c9a227); color: #fff; }
+  .ds-links .primary:hover   { background: #a8871e; }
+  .ds-links .secondary { background: rgba(201, 162, 39, 0.08); color: var(--map-red, #c9a227); border: 1px solid rgba(201, 162, 39, 0.3); }
+  .ds-links .secondary:hover { background: rgba(201, 162, 39, 0.15); }
+
+  .ds-summary {
+    max-width: 1200px; margin: 3rem auto; padding: 2rem;
+    background: linear-gradient(135deg, rgba(201,162,39,0.05) 0%, rgba(201,162,39,0.02) 100%);
+    border: 1px solid rgba(201,162,39,0.2); border-radius: 10px;
+  }
+  .ds-summary h3 { color: var(--map-navy, #3d3d3d); margin-top: 0; }
+  .ds-summary ul { color: #666; line-height: 1.8; }
+  .ds-summary strong { color: var(--map-navy, #3d3d3d); }
+
+  .ds-method { max-width: 1200px; margin: 3rem auto 4rem; padding: 0 2rem; }
+  .ds-method p { color: #666; line-height: 1.8; }
+</style>
+
+<section class="page-banner ds-hero">
   <div style="max-width: 1200px; margin: 0 auto;">
     
-    <p style="font-size: 1.1rem; opacity: 0.9; margin: 0;">Authoritative sources powering our health facilities database</p>
+    <p>Per-country Ministry of Health registries feeding the HealthScope facility database</p>
   </div>
 </section>
 
-<!-- SOURCES GRID -->
-<section style="max-width: 1200px; margin: 3rem auto; padding: 0 2rem;">
-  <h2 style="text-align: center; margin-bottom: 0.5rem;" class="anchored">Primary Data Sources</h2>
-  <p style="text-align: center; color: #666; margin-bottom: 2rem;">We collate facility data from multiple authoritative sources and validate against cross-references</p>
+<div class="ds-wrap">
+  <h2 class="anchored">Country-Level Sources</h2>
+  <p class="ds-lede">Every facility in HealthScope traces back to an authoritative Ministry of Health registry. Below, the source powering each country in the portal.</p>
 
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+  <div class="ds-grid">
 
-    <!-- National MoH Registries -->
-    <div class="card-modern" style="border-top: 4px solid var(--map-red, #c9a227); display: flex; flex-direction: column;">
-      <div style="text-align: center; margin-bottom: 1rem;">
-        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, rgba(201, 162, 39, 0.15) 0%, rgba(201, 162, 39, 0.05) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; border: 2px solid rgba(201, 162, 39, 0.3); font-size: 2rem;">
-          📋
-        </div>
+    <!-- Botswana -->
+    <div class="ds-card">
+      <h3 class="anchored">🇧🇼 Botswana</h3>
+      <div class="ds-count"><span class="num">1,076</span><span class="lbl">facilities</span></div>
+      <p class="ds-source"><strong>MoH Master Facility List (MFL)</strong> — Ministry of Health &amp; Wellness master facility register, supplemented with published services and infrastructure data.</p>
+      <div class="ds-badges"><span class="ds-badge">Official</span><span class="ds-badge">Point Data</span><span class="ds-badge">Services</span></div>
+      <div class="ds-links">
+        <a class="primary" href="countries/Botswana.html">Country page →</a>
       </div>
-      <h3 style="margin-top: 0; text-align: center; color: var(--map-red, #c9a227);" class="anchored">National Registries</h3>
-      <p style="color: #666; flex: 1;">Master facility lists maintained by Ministries of Health across East Africa. Official authoritative source for facility licensing and accreditation.</p>
-      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
-        <span style="background: rgba(201, 162, 39, 0.1); color: var(--map-red, #c9a227); padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Point Data</span>
-        <span style="background: rgba(201, 162, 39, 0.1); color: var(--map-red, #c9a227); padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Official</span>
-        <span style="background: rgba(201, 162, 39, 0.1); color: var(--map-red, #c9a227); padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Licensed</span>
-      </div>
-      <a href="https://www.health.go.ke" target="_blank" class="btn-secondary" style="text-align: center; text-decoration: none;">Visit Source</a>
     </div>
 
-    <!-- OpenStreetMap -->
-    <div class="card-modern" style="border-top: 4px solid var(--map-red, #c9a227); display: flex; flex-direction: column;">
-      <div style="text-align: center; margin-bottom: 1rem;">
-        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, rgba(201, 162, 39, 0.15) 0%, rgba(201, 162, 39, 0.05) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; border: 2px solid rgba(201, 162, 39, 0.3); font-size: 2rem;">
-          🗺️
-        </div>
+    <!-- Ethiopia -->
+    <div class="ds-card">
+      <h3 class="anchored">🇪🇹 Ethiopia</h3>
+      <div class="ds-count"><span class="num">40,035</span><span class="lbl">facilities</span></div>
+      <p class="ds-source"><strong>Master Facility Registry (MFR v2)</strong> — Ethiopian Ministry of Health's national facility registry. Geocoded via a per-woreda process (see Ethiopia country page).</p>
+      <div class="ds-badges"><span class="ds-badge">Official</span><span class="ds-badge">Point Data</span><span class="ds-badge">API</span></div>
+      <div class="ds-links">
+        <a class="primary" href="countries/Ethiopia.html">Country page →</a>
+        <a class="secondary" href="https://mfr.moh.gov.et" target="_blank" rel="noopener">MFR portal ↗</a>
       </div>
-      <h3 style="margin-top: 0; text-align: center; color: var(--map-red, #c9a227);" class="anchored">OpenStreetMap</h3>
-      <p style="color: #666; flex: 1;">Community-contributed health facility data from OpenStreetMap. Used for cross-reference validation and coverage assessment in underreported regions.</p>
-      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
-        <span style="background: rgba(201, 162, 39, 0.1); color: var(--map-red, #c9a227); padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Point Data</span>
-        <span style="background: rgba(201, 162, 39, 0.1); color: var(--map-red, #c9a227); padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">Community</span>
-        <span style="background: rgba(201, 162, 39, 0.1); color: var(--map-red, #c9a227); padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600;">ODbL</span>
+    </div>
+
+    <!-- Kenya -->
+    <div class="ds-card">
+      <h3 class="anchored">🇰🇪 Kenya</h3>
+      <div class="ds-count"><span class="num">17,353</span><span class="lbl">facilities</span></div>
+      <p class="ds-source"><strong>Kenya Master Health Facility Registry (KMHFR)</strong> — MoH's authoritative facility register, published by the Health Sector Monitoring &amp; Evaluation Unit.</p>
+      <div class="ds-badges"><span class="ds-badge">Official</span><span class="ds-badge">Point Data</span><span class="ds-badge">Licensed</span></div>
+      <div class="ds-links">
+        <a class="primary" href="countries/kenya.html">Country page →</a>
+        <a class="secondary" href="https://kmhfr.health.go.ke" target="_blank" rel="noopener">KMHFR portal ↗</a>
       </div>
-      <a href="https://openstreetmap.org" target="_blank" class="btn-secondary" style="text-align: center; text-decoration: none;">Visit Source</a>
+    </div>
+
+    <!-- Malawi -->
+    <div class="ds-card">
+      <h3 class="anchored">🇲🇼 Malawi</h3>
+      <div class="ds-count"><span class="num">1,929</span><span class="lbl">facilities</span></div>
+      <p class="ds-source"><strong>MoH Central Monitoring &amp; Evaluation Division (CMED)</strong> — facility list maintained by the Ministry of Health's monitoring &amp; evaluation unit.</p>
+      <div class="ds-badges"><span class="ds-badge">Official</span><span class="ds-badge">Point Data</span></div>
+      <div class="ds-links">
+        <a class="primary" href="countries/Malawi.html">Country page →</a>
+      </div>
+    </div>
+
+    <!-- Nigeria -->
+    <div class="ds-card">
+      <h3 class="anchored">🇳🇬 Nigeria</h3>
+      <div class="ds-count"><span class="num">51,023</span><span class="lbl">facilities</span></div>
+      <p class="ds-source"><strong>NHMIS / DHIS2</strong> — National Health Management Information System routed through the DHIS2 platform, jointly maintained by the Federal Ministry of Health.</p>
+      <div class="ds-badges"><span class="ds-badge">Official</span><span class="ds-badge">Point Data</span><span class="ds-badge">DHIS2</span></div>
+      <div class="ds-links">
+        <a class="primary" href="countries/Nigeria.html">Country page →</a>
+      </div>
+    </div>
+
+    <!-- Tanzania -->
+    <div class="ds-card">
+      <h3 class="anchored">🇹🇿 Tanzania</h3>
+      <div class="ds-count"><span class="num">13,075</span><span class="lbl">facilities</span></div>
+      <p class="ds-source"><strong>MoH Health Facility Registry (HFR) Portal</strong> — Ministry of Health, Community Development, Gender, Elderly &amp; Children — national facility registry with services and infrastructure data.</p>
+      <div class="ds-badges"><span class="ds-badge">Official</span><span class="ds-badge">Point Data</span><span class="ds-badge">Services</span></div>
+      <div class="ds-links">
+        <a class="primary" href="countries/tanzania.html">Country page →</a>
+        <a class="secondary" href="https://hfrportal.moh.go.tz" target="_blank" rel="noopener">HFR portal ↗</a>
+      </div>
+    </div>
+
+    <!-- Uganda -->
+    <div class="ds-card">
+      <h3 class="anchored">🇺🇬 Uganda</h3>
+      <div class="ds-count"><span class="num">8,512</span><span class="lbl">facilities</span></div>
+      <p class="ds-source"><strong>MoH DHIS2</strong> — facility register served from Uganda's national DHIS2 instance, maintained by the Ministry of Health.</p>
+      <div class="ds-badges"><span class="ds-badge">Official</span><span class="ds-badge">Point Data</span><span class="ds-badge">DHIS2</span></div>
+      <div class="ds-links">
+        <a class="primary" href="countries/uganda.html">Country page →</a>
+      </div>
+    </div>
+
+    <!-- Zambia -->
+    <div class="ds-card">
+      <h3 class="anchored">🇿🇲 Zambia</h3>
+      <div class="ds-count"><span class="num">3,731</span><span class="lbl">facilities</span></div>
+      <p class="ds-source"><strong>MoH Health Resources Information System (HRIS)</strong> — Zambia Ministry of Health's facility &amp; resources information system.</p>
+      <div class="ds-badges"><span class="ds-badge">Official</span><span class="ds-badge">Point Data</span></div>
+      <div class="ds-links">
+        <a class="primary" href="countries/Zambia.html">Country page →</a>
+      </div>
     </div>
 
   </div>
-</section>
+</div>
 
-<!-- UPDATE FREQUENCY SECTION -->
-<section style="max-width: 1200px; margin: 3rem auto; padding: 2rem; background: linear-gradient(135deg, rgba(201, 162, 39, 0.05) 0%, rgba(201, 162, 39, 0.02) 100%); border: 1px solid rgba(201, 162, 39, 0.2); border-radius: 10px;">
-  <h3 style="color: var(--color-navy); margin-top: 0;" class="anchored">Data Update Frequency</h3>
-  <p style="color: #666; margin-bottom: 1rem;">Our datasets follow a structured update schedule to ensure accuracy and timeliness:</p>
-  <ul style="color: #666; line-height: 1.8;">
-    <li><strong>Core Facility Lists:</strong> Updated quarterly or when new data sources become available</li>
-    <li><strong>Service Availability:</strong> Refreshed when MoH registries publish new exports</li>
-    <li><strong>Coordinate Validation:</strong> Continuously verified against reference datasets</li>
-    <li><strong>Quality Reports:</strong> Regenerated with each dataset version release</li>
+<div class="ds-summary">
+  <h3 class="anchored">How the sources fit together</h3>
+  <ul>
+    <li><strong>Primary:</strong> Ministry of Health master facility registries — one per country, above.</li>
+    <li><strong>Cross-reference:</strong> OpenStreetMap facility tags, used only to validate coordinates and flag likely coverage gaps. Never overrides the MoH record.</li>
+    <li><strong>Not used:</strong> commercial listings, aggregators, or crowdsourced portals that don't disclose their upstream source.</li>
   </ul>
-</section>
+  <p style="color: #666; margin: 1rem 0 0;">All eight sources are refreshed on a rolling basis; see the <a href="about.html">About page</a> for the ETL cadence.</p>
+</div>
 
-<!-- METHODOLOGY SECTION -->
-<section style="max-width: 1200px; margin: 3rem auto; padding: 0 2rem; margin-bottom: 3rem;">
+<div class="ds-method">
   <h2 class="anchored">Data Harmonization Methodology</h2>
-  <p style="color: #666; line-height: 1.8;">
-    All source datasets are harmonized to a standard schema capturing: unique facility ID, official name, administrative hierarchy
-    (country/region/district), facility type (hospital/clinic/health center), ownership (public/private/NGO), GPS coordinates,
-    bed capacity, operational status, last verification date, and service availability indicators. Quality assessment includes
-    duplicate detection, coordinate validation, admin hierarchy consistency, and temporal completeness checks.
+  <p>
+    All source datasets are harmonised to a common schema: unique facility ID, official name,
+    administrative hierarchy (country / region / district), facility type (hospital / clinic /
+    health centre), ownership (public / private / faith-based / NGO), GPS coordinates,
+    operational status, last-verification date, and service availability indicators.
+    Quality assessment includes duplicate detection, coordinate validation against the
+    country bounding box, admin-hierarchy consistency checks, and temporal completeness.
   </p>
-</section>
+</div>
 
 
 
