@@ -38,6 +38,22 @@ COUNTRIES <- list(
   ethiopia = "eth"
 )
 
+# Country bounding boxes c(lat_min, lat_max, lon_min, lon_max), matching the
+# values used by the frontend (population-access.qmd, registry.qmd). Rows with
+# coordinates outside the bbox are dropped before buffering — otherwise a
+# stray (0, 0) or lat/lon-swapped point can crash exact_extract with an
+# "OGR: Unsupported geometry type" error, as seen for Ethiopia.
+BBOX <- list(
+  tanzania = c(-11.8, -1.0, 29.2, 40.6),
+  kenya    = c(-4.7,   5.5, 33.9, 41.9),
+  nigeria  = c(  4.0, 14.0,  2.7, 14.7),
+  uganda   = c(-1.5,   4.3, 29.5, 35.1),
+  zambia   = c(-18.1, -8.2, 21.9, 33.7),
+  malawi   = c(-17.2, -9.3, 32.6, 36.0),
+  botswana = c(-27.0,-17.7, 19.9, 29.4),
+  ethiopia = c(  3.0, 15.0, 33.0, 48.0)
+)
+
 # ---- paths -----------------------------------------------------------------
 facility_csv <- function(slug) {
   sprintf("etl/data/processed/country_standardized/%s_standardized.csv", slug)
@@ -73,7 +89,16 @@ process_country <- function(slug, iso3_lower) {
            is.finite(as.numeric(latitude)), is.finite(as.numeric(longitude))) |>
     mutate(latitude  = as.numeric(latitude),
            longitude = as.numeric(longitude))
-  message(sprintf("  facilities with valid coords: %d", nrow(facilities)))
+  n_before_bbox <- nrow(facilities)
+
+  b <- BBOX[[slug]]
+  facilities <- facilities |>
+    filter(latitude  >= b[1], latitude  <= b[2],
+           longitude >= b[3], longitude <= b[4])
+  n_dropped <- n_before_bbox - nrow(facilities)
+  message(sprintf("  facilities with valid coords: %d%s",
+                  nrow(facilities),
+                  if (n_dropped > 0) sprintf(" (%d dropped for out-of-bbox coords)", n_dropped) else ""))
 
   if (nrow(facilities) == 0) {
     warning(sprintf("[%s] no valid coordinates — skipping", slug))
