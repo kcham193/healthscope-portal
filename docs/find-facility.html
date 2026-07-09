@@ -337,7 +337,7 @@ ul.task-list li input[type="checkbox"] {
   }
   .finder-controls {
     display: grid;
-    grid-template-columns: 1fr 1fr auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr auto;
     gap: 1rem;
     align-items: end;
     padding: 1.5rem;
@@ -760,6 +760,14 @@ ul.task-list li input[type="checkbox"] {
         <option value="">-- Loading services... --</option>
       </select>
     </div>
+    <div>
+      <label for="travel-mode">Travel Mode</label>
+      <select id="travel-mode">
+        <option value="driving-car" selected="">Drive</option>
+        <option value="foot-walking">Walk</option>
+        <option value="cycling-regular">Cycle</option>
+      </select>
+    </div>
     <div class="max-results-control">
       <div style="width:100%">
         <label for="max-results">Show nearest</label>
@@ -1105,8 +1113,23 @@ ul.task-list li input[type="checkbox"] {
   // Key is loaded from gitignored `ors-key.js` (see <script> tag at top of page).
   // Free key signup: https://openrouteservice.org/dev/#/signup (2,000 req/day, 40/min).
   var ORS_API_KEY     = (typeof window.ORS_API_KEY === 'string') ? window.ORS_API_KEY : '';
-  var ORS_PROFILE     = 'driving-car';   // driving-car | foot-walking | cycling-regular
   var ORS_PREFILTER_N = 30;              // top-N nearest-by-haversine to road-route per search
+
+  // Travel-mode metadata: ORS profile id → labels/verbs used in status + result text.
+  // `routedText` is the "actual route" flag (contrasts with "straight-line" fallback).
+  var TRAVEL_MODES = {
+    'driving-car':     { label: 'Drive', verb: 'drive', routedText: 'by road',  status: 'road' },
+    'foot-walking':    { label: 'Walk',  verb: 'walk',  routedText: 'on foot',  status: 'walking' },
+    'cycling-regular': { label: 'Cycle', verb: 'cycle', routedText: 'by bike',  status: 'cycling' }
+  };
+  function currentMode() {
+    var el = document.getElementById('travel-mode');
+    return (el && TRAVEL_MODES[el.value]) ? TRAVEL_MODES[el.value] : TRAVEL_MODES['driving-car'];
+  }
+  function currentProfile() {
+    var el = document.getElementById('travel-mode');
+    return (el && TRAVEL_MODES[el.value]) ? el.value : 'driving-car';
+  }
 
   // One matrix request: 1 origin → many destinations.
   // Returns { distances: [km], durations: [sec] } aligned with `destinations`.
@@ -1117,7 +1140,7 @@ ul.task-list li input[type="checkbox"] {
       destinations.map(function(d){ return [d[1], d[0]]; }) // ORS wants [lon, lat]
     );
     var destIdx = destinations.map(function(_, i){ return i + 1; });
-    var resp = await fetch('https://api.openrouteservice.org/v2/matrix/' + ORS_PROFILE, {
+    var resp = await fetch('https://api.openrouteservice.org/v2/matrix/' + currentProfile(), {
       method: 'POST',
       headers: {
         'Authorization': ORS_API_KEY,
@@ -1159,6 +1182,9 @@ ul.task-list li input[type="checkbox"] {
   window.searchFacilities = async function() {
     var serviceKey = document.getElementById('service-select').value;
     var maxResults = parseInt(document.getElementById('max-results').value);
+    // Capture the travel mode at search time so results don't drift if the user
+    // changes the dropdown before clicking a marker for the side-panel detail.
+    var searchMode = currentMode();
 
     if (!serviceKey || userLat === null) return;
 
@@ -1216,7 +1242,7 @@ ul.task-list li input[type="checkbox"] {
     // Pre-filter keeps quota usage at 1 request/search even when thousands match.
     var candidates = matched.slice(0, Math.max(maxResults, ORS_PREFILTER_N));
     if (ORS_API_KEY && candidates.length > 0) {
-      showStatus('Calculating road distances for the ' + candidates.length + ' nearest candidates…', 'info');
+      showStatus('Calculating ' + searchMode.status + ' distances for the ' + candidates.length + ' nearest candidates…', 'info');
       try {
         var dests = candidates.map(function(c){ return [c.lat, c.lon]; });
         var mx = await orsMatrix([userLat, userLon], dests);
@@ -1241,7 +1267,7 @@ ul.task-list li input[type="checkbox"] {
 
     var nearest = matched.slice(0, maxResults);
     var anyRouted = nearest.some(function(f){ return f.routed; });
-    var distLabel = anyRouted ? 'by road' : 'straight-line';
+    var distLabel = anyRouted ? searchMode.routedText : 'straight-line';
     showStatus('Found <strong>' + matched.length.toLocaleString() + '</strong> facilities offering <strong>' + svcLabel(serviceKey) + '</strong>. Showing the nearest <strong>' + nearest.length + '</strong> (' + distLabel + ').', 'success');
 
     var bounds = L.latLngBounds([[userLat, userLon]]);
@@ -1261,8 +1287,8 @@ ul.task-list li input[type="checkbox"] {
       var detailList = f.serviceDetails.slice(0,5).map(function(d){return '&bull; '+d;}).join('<br/>');
       if(f.serviceDetails.length > 5) detailList += '<br/><em>+' + (f.serviceDetails.length-5) + ' more</em>';
 
-      var distText = f.distance.toFixed(1) + ' km' + (f.routed ? ' by road' : ' (straight-line)');
-      var durText  = f.routed && f.duration != null ? ' &middot; ' + formatDuration(f.duration) + ' drive' : '';
+      var distText = f.distance.toFixed(1) + ' km' + (f.routed ? ' ' + searchMode.routedText : ' (straight-line)');
+      var durText  = f.routed && f.duration != null ? ' &middot; ' + formatDuration(f.duration) + ' ' + searchMode.verb : '';
       var popupHtml = '<div style="min-width:220px;">' +
         '<strong style="font-size:1.05rem;">' + f.name + '</strong><br/>' +
         '<span style="color:#666;">Type: </span>' + f.type + '<br/>' +
@@ -1281,7 +1307,7 @@ ul.task-list li input[type="checkbox"] {
       }).addTo(map).bindPopup(popupHtml);
       // Clicking the marker also fills the side panel with the full
       // service profile (not just the first 5 entries).
-      marker.on('click', function() { showFacilityDetail(f, serviceKey); });
+      marker.on('click', function() { showFacilityDetail(f, serviceKey, searchMode); });
 
       var rankIcon = L.divIcon({
         html: '<div style="width:22px;height:22px;background:#c9a227;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.3);">' + (i+1) + '</div>',
@@ -1309,7 +1335,7 @@ ul.task-list li input[type="checkbox"] {
       var distStr = f.distance < 1 ? (f.distance * 1000).toFixed(0) : f.distance.toFixed(1);
       var distUnit = f.distance < 1 ? 'm' : 'km';
       var timeHtml = (f.routed && f.duration != null)
-        ? '<div class="dist-time">' + formatDuration(f.duration) + ' drive</div>'
+        ? '<div class="dist-time">' + formatDuration(f.duration) + ' ' + searchMode.verb + '</div>'
         : '';
       var noteHtml = f.routed ? '' : '<div class="dist-note">straight-line</div>';
 
@@ -1335,7 +1361,11 @@ ul.task-list li input[type="checkbox"] {
   };
 
   // ── Side-panel: full facility detail (every service, not capped) ──
-  function showFacilityDetail(f, selectedKey) {
+  // `mode` is the TRAVEL_MODES entry captured at the time of the search
+  // whose results this facility belongs to. Defaults to driving-car when
+  // called without it (e.g. panTo → click before any search).
+  function showFacilityDetail(f, selectedKey, mode) {
+    mode = mode || TRAVEL_MODES['driving-car'];
     var content = document.getElementById('finder-detail-content');
     var empty   = document.getElementById('finder-detail-empty');
     if (!content) return;
@@ -1371,7 +1401,7 @@ ul.task-list li input[type="checkbox"] {
       (f.distance * 1000).toFixed(0) + ' m' :
       f.distance.toFixed(1) + ' km';
     var distSuffix = f.routed
-      ? ' by road' + (f.duration != null ? ' &middot; ' + formatDuration(f.duration) + ' drive' : '')
+      ? ' ' + mode.routedText + (f.duration != null ? ' &middot; ' + formatDuration(f.duration) + ' ' + mode.verb : '')
       : ' (straight-line)';
 
     content.innerHTML =
