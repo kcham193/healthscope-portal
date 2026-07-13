@@ -129,14 +129,14 @@ toc: false
     <div class="ctrl">
       <label for="pa-country">Country</label>
       <select id="pa-country">
-        <option value="tanzania" selected>Tanzania</option>
+        <option value="botswana" selected>Botswana</option>
+        <option value="ethiopia">Ethiopia</option>
         <option value="kenya">Kenya</option>
+        <option value="malawi">Malawi</option>
         <option value="nigeria">Nigeria</option>
+        <option value="tanzania">Tanzania</option>
         <option value="uganda">Uganda</option>
         <option value="zambia">Zambia</option>
-        <option value="malawi">Malawi</option>
-        <option value="botswana">Botswana</option>
-        <option value="ethiopia">Ethiopia</option>
       </select>
     </div>
     <div class="ctrl">
@@ -596,7 +596,7 @@ toc: false
     renderLegend();
   });
 
-  loadCountry('tanzania');
+  loadCountry('botswana');
 })();
 </script>
 ```

@@ -27,13 +27,13 @@ execute:
         <label for="country-select" style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Choose a country:</label>
         <select id="country-select" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;">
           <option value="">-- Select a Country --</option>
+          <option value="benin">🇧🇯 Benin</option>
           <option value="kenya">🇰🇪 Kenya</option>
+          <option value="malawi">🇲🇼 Malawi</option>
+          <option value="nigeria">🇳🇬 Nigeria</option>
           <option value="tanzania">🇹🇿 Tanzania</option>
           <option value="uganda">🇺🇬 Uganda</option>
           <option value="zambia">🇿🇲 Zambia</option>
-          <option value="malawi">🇲🇼 Malawi</option>
-          <option value="nigeria">🇳🇬 Nigeria</option>
-          <option value="benin">🇧🇯 Benin</option>
         </select>
       </div>
       <button id="load-map-btn" class="btn-primary" style="margin: 0;">Load Map & Data</button>

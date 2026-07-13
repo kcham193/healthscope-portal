@@ -450,12 +450,12 @@ execute:
     <div>
       <label for="country-select">Country</label>
       <select id="country-select">
-        <option value="tanzania" selected>Tanzania</option>
-        <option value="kenya">Kenya</option>
-        <option value="zambia">Zambia</option>
-        <option value="malawi">Malawi</option>
-        <option value="botswana">Botswana</option>
+        <option value="botswana" selected>Botswana</option>
         <option value="ethiopia">Ethiopia</option>
+        <option value="kenya">Kenya</option>
+        <option value="malawi">Malawi</option>
+        <option value="tanzania">Tanzania</option>
+        <option value="zambia">Zambia</option>
       </select>
     </div>
     <div>
@@ -1136,7 +1136,7 @@ execute:
   };
 
   // ─── Init ───
-  loadCountry('tanzania');
+  loadCountry('botswana');
 })();
 </script>
 ```

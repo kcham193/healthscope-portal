@@ -331,7 +331,8 @@ ul.task-list li input[type="checkbox"] {
     transition: box-shadow 0.15s, transform 0.15s;
   }
   .ds-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); transform: translateY(-2px); }
-  .ds-card h3 { margin: 0 0 0.5rem; color: var(--map-red, #c9a227); font-family: 'Space Grotesk', sans-serif; }
+  .ds-card h3 { margin: 0 0 0.5rem; color: var(--map-red, #c9a227); font-family: 'Space Grotesk', sans-serif; display: flex; align-items: center; gap: 0.6rem; }
+  .ds-flag { width: 28px; height: 20px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,0.08); object-fit: cover; }
   .ds-count { display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 1rem; }
   .ds-count .num { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--map-navy, #3d3d3d); }
   .ds-count .lbl { color: #666; font-size: 0.85rem; }
@@ -391,7 +392,7 @@ ul.task-list li input[type="checkbox"] {
 
     <!-- Botswana -->
     <div class="ds-card">
-      <h3 class="anchored">🇧🇼 Botswana</h3>
+      <h3 class="anchored"><img class="ds-flag" src="https://flagicons.lipis.dev/flags/4x3/bw.svg" alt=""> Botswana</h3>
       <div class="ds-count"><span class="num">1,076</span><span class="lbl">facilities</span></div>
       <p class="ds-source"><strong>MoH Master Facility List (MFL)</strong> — Ministry of Health &amp; Wellness master facility register, supplemented with published services and infrastructure data.</p>
       <div class="ds-badges"><span class="ds-badge">Official</span><span class="ds-badge">Point Data</span><span class="ds-badge">Services</span></div>
@@ -402,7 +403,7 @@ ul.task-list li input[type="checkbox"] {
 
     <!-- Ethiopia -->
     <div class="ds-card">
-      <h3 class="anchored">🇪🇹 Ethiopia</h3>
+      <h3 class="anchored"><img class="ds-flag" src="https://flagicons.lipis.dev/flags/4x3/et.svg" alt=""> Ethiopia</h3>
       <div class="ds-count"><span class="num">40,035</span><span class="lbl">facilities</span></div>
       <p class="ds-source"><strong>Master Facility Registry (MFR v2)</strong> — Ethiopian Ministry of Health's national facility registry. Geocoded via a per-woreda process (see Ethiopia country page).</p>
       <div class="ds-badges"><span class="ds-badge">Official</span><span class="ds-badge">Point Data</span><span class="ds-badge">API</span></div>
@@ -413,7 +414,7 @@ ul.task-list li input[type="checkbox"] {
 
     <!-- Kenya -->
     <div class="ds-card">
-      <h3 class="anchored">🇰🇪 Kenya</h3>
+      <h3 class="anchored"><img class="ds-flag" src="https://flagicons.lipis.dev/flags/4x3/ke.svg" alt=""> Kenya</h3>
       <div class="ds-count"><span class="num">17,353</span><span class="lbl">facilities</span></div>
       <p class="ds-source"><strong>Kenya Master Health Facility Registry (KMHFR)</strong> — MoH's authoritative facility register, published by the Health Sector Monitoring &amp; Evaluation Unit.</p>
       <div class="ds-badges"><span class="ds-badge">Official</span><span class="ds-badge">Point Data</span><span class="ds-badge">Licensed</span></div>
@@ -424,7 +425,7 @@ ul.task-list li input[type="checkbox"] {
 
     <!-- Malawi -->
     <div class="ds-card">
-      <h3 class="anchored">🇲🇼 Malawi</h3>
+      <h3 class="anchored"><img class="ds-flag" src="https://flagicons.lipis.dev/flags/4x3/mw.svg" alt=""> Malawi</h3>
       <div class="ds-count"><span class="num">1,929</span><span class="lbl">facilities</span></div>
       <p class="ds-source"><strong>Master Health Facility Registry (MHFR / Zipatala)</strong> — MoH &amp; Population's national online facility database, replacing the older CMED spreadsheet-based list.</p>
       <div class="ds-badges"><span class="ds-badge">Official</span><span class="ds-badge">Point Data</span></div>
@@ -435,7 +436,7 @@ ul.task-list li input[type="checkbox"] {
 
     <!-- Nigeria -->
     <div class="ds-card">
-      <h3 class="anchored">🇳🇬 Nigeria</h3>
+      <h3 class="anchored"><img class="ds-flag" src="https://flagicons.lipis.dev/flags/4x3/ng.svg" alt=""> Nigeria</h3>
       <div class="ds-count"><span class="num">51,023</span><span class="lbl">facilities</span></div>
       <p class="ds-source"><strong>Nigeria Health Facility Registry (HFR)</strong> — Federal Ministry of Health's dynamic Master Facility List, integrated with NHMIS on DHIS2 for data flow.</p>
       <div class="ds-badges"><span class="ds-badge">Official</span><span class="ds-badge">Point Data</span><span class="ds-badge">DHIS2</span></div>
@@ -446,7 +447,7 @@ ul.task-list li input[type="checkbox"] {
 
     <!-- Tanzania -->
     <div class="ds-card">
-      <h3 class="anchored">🇹🇿 Tanzania</h3>
+      <h3 class="anchored"><img class="ds-flag" src="https://flagicons.lipis.dev/flags/4x3/tz.svg" alt=""> Tanzania</h3>
       <div class="ds-count"><span class="num">13,075</span><span class="lbl">facilities</span></div>
       <p class="ds-source"><strong>MoH Health Facility Registry (HFR) Portal</strong> — Ministry of Health, Community Development, Gender, Elderly &amp; Children — national facility registry with services and infrastructure data.</p>
       <div class="ds-badges"><span class="ds-badge">Official</span><span class="ds-badge">Point Data</span><span class="ds-badge">Services</span></div>
@@ -457,7 +458,7 @@ ul.task-list li input[type="checkbox"] {
 
     <!-- Uganda -->
     <div class="ds-card">
-      <h3 class="anchored">🇺🇬 Uganda</h3>
+      <h3 class="anchored"><img class="ds-flag" src="https://flagicons.lipis.dev/flags/4x3/ug.svg" alt=""> Uganda</h3>
       <div class="ds-count"><span class="num">8,512</span><span class="lbl">facilities</span></div>
       <p class="ds-source"><strong>National Health Facility Registry (NHFR)</strong> — Ministry of Health's authoritative facility database, complemented by the eHMIS reporting platform (DHIS2).</p>
       <div class="ds-badges"><span class="ds-badge">Official</span><span class="ds-badge">Point Data</span><span class="ds-badge">DHIS2</span></div>
@@ -468,7 +469,7 @@ ul.task-list li input[type="checkbox"] {
 
     <!-- Zambia -->
     <div class="ds-card">
-      <h3 class="anchored">🇿🇲 Zambia</h3>
+      <h3 class="anchored"><img class="ds-flag" src="https://flagicons.lipis.dev/flags/4x3/zm.svg" alt=""> Zambia</h3>
       <div class="ds-count"><span class="num">3,731</span><span class="lbl">facilities</span></div>
       <p class="ds-source"><strong>Master Facility List (MFL)</strong> — Zambia Ministry of Health's national online facility directory, maintained alongside HMIS/HRIS platforms.</p>
       <div class="ds-badges"><span class="ds-badge">Official</span><span class="ds-badge">Point Data</span></div>
