@@ -25,8 +25,18 @@ toc: false
     <h1>
       <span class="hero-accent">HealthScope</span>
     </h1>
-    <p style="font-size:1.5rem;color:rgba(255,255,255,0.85);margin-bottom:0.5rem;font-weight:500;">Health Facility Intelligence Portal</p>
-    <p>An open-access health facility intelligence portal designed to move beyond static facility inventories toward dynamic, demand-driven health access analytics across malaria-endemic countries in Sub-Saharan Africa. Developed from data extracted directly from Ministries of Health, HealthScope transforms raw registry data into actionable intelligence. The portal reveals not just where health facilities exist, but whether populations can realistically access them and what services they offer.</p>
+    <p style="font-size:1.4rem;color:rgba(255,255,255,0.9);margin:0 auto 1.5rem;font-weight:500;max-width:800px;">
+      Health Facility Intelligence Portal
+    </p>
+
+    <div style="max-width:820px;margin:0 auto 2.25rem;">
+      <p style="font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,0.78);margin:0 0 0.9rem;">
+        An open-access health facility intelligence portal designed to move beyond static facility inventories toward <strong style="color:rgba(255,255,255,0.95);font-weight:600;">dynamic, demand-driven health access analytics</strong> across malaria-endemic countries in Sub-Saharan Africa.
+      </p>
+      <p style="font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,0.78);margin:0;">
+        Developed from data extracted directly from <strong style="color:rgba(255,255,255,0.95);font-weight:600;">Ministries of Health</strong>, HealthScope transforms raw registry data into actionable intelligence &mdash; revealing not just <em>where</em> health facilities exist, but whether populations can realistically access them and what services they offer.
+      </p>
+    </div>
   </div>
 
   <div style="position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:3;animation:float 3s ease-in-out infinite;">
