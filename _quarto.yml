@@ -54,6 +54,8 @@ format:
     link-external-icon: true
     link-external-newwindow: true
     smooth-scroll: true
+    include-after-body:
+      - _chatbot-embed.html
     grid:
       body-width: 1400px
       sidebar-width: 0px
