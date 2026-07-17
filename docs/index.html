@@ -299,9 +299,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7">
-      <span class="hero-accent">HealthScope</span>
-    </h1></header>
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
@@ -319,7 +317,11 @@ ul.task-list li input[type="checkbox"] {
   </div>
 
   <div class="hero-content">
-    
+    <!-- Rendered as a div (not <h1>) to prevent Quarto's title-block
+         machinery from hoisting it out of the hero container. -->
+    <div class="hero-title" role="heading" aria-level="1" style="font-family:'Space Grotesk',sans-serif;font-size:3.8rem;font-weight:800;color:#fff;line-height:1.1;margin:0 auto 1.5rem;letter-spacing:-0.03em;text-align:center;">
+      <span class="hero-accent">HealthScope</span>
+    </div>
     <p style="font-size:1.4rem;color:rgba(255,255,255,0.9);margin:0 auto 1.5rem;font-weight:500;max-width:800px;">
       Health Facility Intelligence Portal
     </p>
