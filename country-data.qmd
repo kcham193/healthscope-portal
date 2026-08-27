@@ -66,7 +66,7 @@ sample_facilities <- data.frame(
 
 # Create Leaflet map
 leaflet(sample_facilities) %>%
-  addProviderTiles(providers$CartoDB.Positron) %>%
+  addProviderTiles(providers$Esri.WorldGrayCanvas) %>%
   setView(lng = 34.5, lat = -2, zoom = 5) %>%
   addCircleMarkers(
     ~lon, ~lat,
