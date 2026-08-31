@@ -887,9 +887,9 @@ ul.task-list li input[type="checkbox"] {
   var cache = {};
 
   map = L.map('finder-map').setView([-2, 36], 5);
-  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-    attribution: 'Tiles &copy; Esri',
-    maxZoom: 16
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors',
+    maxZoom: 19
   }).addTo(map);
 
   // ── Click on the map background to set the user's location ──

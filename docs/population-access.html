@@ -584,8 +584,8 @@ ul.task-list li input[type="checkbox"] {
   var TZ_BOUNDS = [[-11.8, 29.2], [-1.0, 40.6]];
   function newMap(id) {
     var m = L.map(id, { preferCanvas: true }).fitBounds(TZ_BOUNDS);
-    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-      attribution: 'Tiles &copy; Esri', maxZoom: 12
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors', maxZoom: 12
     }).addTo(m);
     return m;
   }

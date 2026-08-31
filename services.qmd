@@ -181,8 +181,8 @@ toc: false
   function setStatus(msg){ document.getElementById('svc-status').innerHTML = msg; }
 
   map = L.map('svc-map').setView([-2,35],5);
-  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',{
-    attribution:'Tiles &copy; Esri', maxZoom:16
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+    attribution:'&copy; OpenStreetMap contributors', maxZoom:18
   }).addTo(map);
 
   // ── Load a country ──
