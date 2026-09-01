@@ -467,7 +467,7 @@ ul.task-list li input[type="checkbox"] {
   <!-- Non-Tanzania fallback -->
   <div class="pa-fallback" id="pa-fallback">
     <h3 class="anchored">Full accessibility analysis for <span id="pa-fallback-country">…</span> is being prepared.</h3>
-    <p>The travel-time + Voronoi-catchment pipeline currently runs only for Tanzania. The same methodology (modelled 100&nbsp;m travel-time surface, constrained WorldPop 2026, Voronoi catchments clipped to country boundary) will roll out to the other seven countries as country-specific inputs become available.</p>
+    <p>The travel-time + Bayesian catchment pipeline currently runs only for Tanzania. The same methodology (modelled 100&nbsp;m travel-time surface from the MAP 2015 friction raster, constrained WorldPop 2026 population, and a Bayesian gravity catchment model with travel-time-decayed attendance probability) will roll out to the other seven countries as country-specific inputs become available.</p>
     <p>In the meantime, per-country facility distribution and coverage are visible in <a href="registry.html">Registry Explorer</a>.</p>
   </div>
 
@@ -504,14 +504,14 @@ ul.task-list li input[type="checkbox"] {
   <!-- ══════════════ Section 2: Catchment ══════════════ -->
   <section class="pa-section" id="pa-section-cat">
     <div class="pa-section-header">
-      <h2 class="anchored">Estimated facility catchment</h2>
-      <p>Voronoi (nearest-facility) catchments — each polygon is the region of space closer to that facility than to any other, clipped to the country boundary. Non-overlapping, exhaustive; total pop across catchments = national pop.</p>
+      <h2 class="anchored">Estimated facility catchment <span style="font-weight:400;font-size:.9rem;color:#c9a227;">— pilot: Arusha region</span></h2>
+      <p>Bayesian gravity model (PATH-Global-Health/catchment): probability of attending each facility is inversely proportional to squared travel time (10–300&nbsp;min band), fitted with an INLA spatial random effect over the friction-derived travel-time matrix. Each facility gets an estimated catchment population with a 95% credible interval. Circle size = catchment magnitude; color = quintile band.</p>
+      <p style="font-size:.85rem;color:#64748b;margin-top:.35rem;"><em>Currently showing the Arusha region (531 facilities) as a pilot. Full-country roll-out is queued once memory/scale constraints for the 12k-facility fit are resolved.</em></p>
     </div>
     <div class="pa-grid">
       <div class="pa-map-wrap">
         <div id="cat-map" class="pa-map"></div>
         <div class="pa-toggles">
-          <label><input type="checkbox" id="cat-facilities"> Show facility points</label>
           <label><input type="checkbox" id="cat-wdpa"> Show protected areas</label>
         </div>
         <div class="pa-legend" id="cat-legend"></div>
@@ -634,18 +634,16 @@ ul.task-list li input[type="checkbox"] {
 
     Promise.all([
       fetchJSON(DATA_BASE + '/tanzania_travel_time_bands.geojson'),
-      fetchJSON(DATA_BASE + '/tanzania_voronoi_polygons.geojson'),
       fetchJSON(DATA_BASE + '/tanzania_wdpa_strict.geojson'),
       fetchCSV(DATA_BASE + '/tanzania_access_summary.csv'),
       fetchCSV(DATA_BASE + '/tanzania_district_burden.csv'),
-      fetchCSV(DATA_BASE + '/tanzania_catchments_voronoi.csv')
+      fetchCSV(DATA_BASE + '/tanzania_catchments.csv')
     ]).then(function(r){
       data.ttBands       = r[0];
-      data.voronoi       = r[1];
-      data.wdpa          = r[2];
-      data.accessSummary = r[3];
-      data.districts     = r[4];
-      data.catchments    = r[5];
+      data.wdpa          = r[1];
+      data.accessSummary = r[2];
+      data.districts     = r[3];
+      data.catchments    = r[4];
 
       renderTravelTime();
       renderCatchment();
@@ -711,35 +709,57 @@ ul.task-list li input[type="checkbox"] {
     document.getElementById('tt-districts').innerHTML = html2;
   }
 
-  // ─── Catchment map (Voronoi) ─────────────────────────────────────────
+  // ─── Catchment map (Bayesian, circle markers) ─────────────────────────
   function renderCatchment() {
-    // Quintile breaks over the polygon-level catchment populations
-    var pops = (data.voronoi.features || [])
-      .map(function(f){ return +f.properties.catchment_population; })
-      .filter(function(v){ return isFinite(v) && v > 0; })
+    var rows = (data.catchments || [])
+      .filter(function(r){
+        return isFinite(+r.latitude) && isFinite(+r.longitude)
+            && isFinite(+r.catchment_population);
+      });
+
+    // Quintile breaks over facility-level catchment populations
+    var pops = rows
+      .map(function(r){ return +r.catchment_population; })
+      .filter(function(v){ return v > 0; })
       .sort(function(a,b){ return a-b; });
     var breaks = [0.2, 0.4, 0.6, 0.8].map(function(p){ return quantile(pops, p); });
 
+    // Circle radius scales with sqrt(catchment_population) for area proportionality
+    var maxPop = pops.length ? pops[pops.length - 1] : 1;
+    function radiusFor(v) {
+      if (!isFinite(+v) || +v <= 0) return 2;
+      return 3 + 9 * Math.sqrt((+v) / maxPop);   // 3–12 px
+    }
+
     if (layers.cat.catchments) { catMap.removeLayer(layers.cat.catchments); }
-    layers.cat.catchments = L.geoJSON(data.voronoi, {
-      style: function(f){
-        return {
-          fillColor: catColor(f.properties.catchment_population, breaks),
-          weight: 0.3, color: '#ffffff88', fillOpacity: 0.78
-        };
-      },
-      onEachFeature: function(feat, lyr){
-        var p = feat.properties || {};
-        lyr.bindPopup(
-          '<div style="min-width:200px;">' +
-            '<strong>' + (p.facility_name || '—') + '</strong><br/>' +
-            '<span style="color:#666;">Region: </span>' + (p.admin1 || '—') + '<br/>' +
-            '<strong style="color:#54278f;">' + fmt(p.catchment_population) + ' people</strong> in this catchment' +
-          '</div>'
-        );
-      }
-    }).addTo(catMap);
-    catMap.fitBounds(layers.cat.catchments.getBounds());
+    var group = L.layerGroup();
+    rows.forEach(function(r){
+      var mean = +r.catchment_population;
+      var lo   = +r.catchment_population_lo95;
+      var hi   = +r.catchment_population_hi95;
+      var se   = +r.catchment_population_se;
+      var ciTxt = (isFinite(lo) && isFinite(hi))
+        ? '<span style="color:#666;">95% CI: </span>' + fmt(lo) + '&ndash;' + fmt(hi)
+        : '';
+      L.circleMarker([+r.latitude, +r.longitude], {
+        radius: radiusFor(mean),
+        color: '#ffffff', weight: 0.8,
+        fillColor: catColor(mean, breaks), fillOpacity: 0.82
+      })
+      .bindPopup(
+        '<div style="min-width:220px;">' +
+          '<strong>' + (r.facility_name || '—') + '</strong><br/>' +
+          '<span style="color:#666;">Type: </span>' + (r.facility_type || '—') + '<br/>' +
+          '<span style="color:#666;">Region: </span>' + (r.admin1 || '—') + '<br/>' +
+          '<strong style="color:#54278f;">' + fmt(mean) + ' people</strong> estimated catchment<br/>' +
+          ciTxt +
+        '</div>'
+      )
+      .addTo(group);
+    });
+    layers.cat.catchments = group.addTo(catMap);
+    var pts = rows.map(function(r){ return [+r.latitude, +r.longitude]; });
+    if (pts.length) catMap.fitBounds(L.latLngBounds(pts));
 
     // Summary metrics
     var facCount = (data.catchments || []).length;
@@ -836,7 +856,6 @@ ul.task-list li input[type="checkbox"] {
   }
   wireToggle('tt-facilities',  'tt',  'facilities', buildFacilityLayer);
   wireToggle('tt-wdpa',        'tt',  'wdpa',       buildWdpaLayer);
-  wireToggle('cat-facilities', 'cat', 'facilities', buildFacilityLayer);
   wireToggle('cat-wdpa',       'cat', 'wdpa',       buildWdpaLayer);
 
   // ─── Country switching ────────────────────────────────────────────────
