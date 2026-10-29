@@ -44,13 +44,13 @@ toc: false
 
 <!-- ═══════════════ FIVE INTELLIGENCE LAYERS ═══════════════ -->
 <section class="features-section">
-  <div style="max-width:1200px;margin:0 auto;padding:0 2rem;">
+  <div style="max-width:1400px;margin:0 auto;padding:0 2rem;">
     <div class="section-header">
       <h2>Intelligence Layers</h2>
       <p>Each layer transforms raw registry data into actionable health system intelligence</p>
     </div>
 
-    <div class="feature-cards" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr));">
+    <div class="feature-cards feature-cards-row">
 
       <!-- Layer 1: Registry -->
       <div class="feature-card">
